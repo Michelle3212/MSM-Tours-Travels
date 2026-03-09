@@ -88,3 +88,13 @@ import os
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
+
+
+@app.route("/admin")
+def admin():
+
+    conn = get_db()
+    bookings = conn.execute("SELECT * FROM bookings").fetchall()
+    conn.close()
+
+    return render_template("admin.html", bookings=bookings)

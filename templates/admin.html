@@ -1,0 +1,21 @@
+<h1>Admin Dashboard</h1>
+
+<table border="1">
+
+<tr>
+<th>Name</th>
+<th>Package</th>
+<th>Date</th>
+</tr>
+
+{% for b in bookings %}
+
+<tr>
+<td>{{b.name}}</td>
+<td>{{b.package}}</td>
+<td>{{b.date}}</td>
+</tr>
+
+{% endfor %}
+
+</table>
