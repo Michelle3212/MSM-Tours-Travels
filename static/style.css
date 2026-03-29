@@ -36,7 +36,7 @@ overflow:hidden;
 
 .slides{
 display:flex;
-animation:slide 16s infinite;
+animation:slide 20s infinite;
 }
 
 .slides img{
@@ -76,8 +76,9 @@ text-align:center;
 
 .card img{
 width:100%;
-height:180px;
+height:220px;
 object-fit:cover;
+display:block;
 }
 
 .card button{
@@ -123,7 +124,7 @@ overflow:hidden;
 
 .slides{
 display:flex;
-animation:slide 12s infinite;
+animation:slide 16s infinite;
 }
 
 .slides img{
@@ -138,4 +139,18 @@ object-fit:cover;
 50%{transform:translateX(-200%);}
 75%{transform:translateX(-300%);}
 100%{transform:translateX(0);}
+}
+
+.card{
+background:white;
+width:260px;
+border-radius:12px;
+box-shadow:0 4px 15px rgba(0,0,0,0.2);
+overflow:hidden;
+text-align:center;
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.05);
 }
