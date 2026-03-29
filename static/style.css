@@ -79,16 +79,24 @@ width:100%;
 height:220px;
 object-fit:cover;
 display:block;
+border-radius:10px 10px 0 0;
 }
 
 .card button{
-background:#0b5394;
+background:linear-gradient(45deg, #ff512f, #dd2476);
 color:white;
 border:none;
-padding:10px;
+padding:12px 20px;
 margin:10px;
 cursor:pointer;
-border-radius:5px;
+border-radius:25px;
+font-size:16px;
+font-weight:bold;
+transition:0.3s;
+}
+
+.card button:hover{
+transform:scale(1.1);
 }
 
 .reviews{
@@ -152,5 +160,74 @@ transition:0.3s;
 }
 
 .card:hover{
+transform:scale(1.05);
+}
+
+.card p{
+font-size:18px;
+font-weight:bold;
+color:#e67e22;
+margin:10px 0;
+}
+
+/* SECTION TITLE */
+.section-title{
+text-align:center;
+margin-top:30px;
+font-size:28px;
+color:#0b5394;
+}
+
+/* OFFERS SECTION */
+.offers{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+padding:20px;
+}
+
+/* OFFER CARD */
+.offer-card{
+background:white;
+width:200px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+overflow:hidden;
+text-align:center;
+transition:0.3s;
+}
+
+/* SMALL IMAGE */
+.offer-card img{
+width:100%;
+height:140px;
+object-fit:cover;
+}
+
+/* TEXT */
+.offer-card h3{
+margin:10px 0;
+font-size:18px;
+}
+
+.offer-card p{
+color:#e67e22;
+font-weight:bold;
+}
+
+/* BUTTON */
+.offer-card button{
+background:#0b5394;
+color:white;
+border:none;
+padding:8px 15px;
+margin:10px;
+border-radius:20px;
+cursor:pointer;
+}
+
+/* HOVER EFFECT */
+.offer-card:hover{
 transform:scale(1.05);
 }
