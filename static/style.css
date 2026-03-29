@@ -100,8 +100,8 @@ overflow:hidden;
 
 .slides{
 display:flex;
-width:900%; /* 9 images */
-animation:slide 45s infinite; /* 5 sec × 9 images */
+width:900%; /* 18 images */
+animation:slide 45s infinite; /* 5 sec × 18 images */
 }
 
 .slides img{
