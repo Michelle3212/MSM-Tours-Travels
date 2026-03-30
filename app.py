@@ -134,4 +134,5 @@ def dashboard():
     return render_template("admin.html", users=users, bookings=bookings, messages=messages)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
