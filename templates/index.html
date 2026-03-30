@@ -1,59 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MSM Tours & Travels</title>
+<title>MSM Tours</title>
 <link rel="stylesheet" href="/static/style.css">
 </head>
 
 <body>
 
-<header>
-<h1>MSM Tours & Travels</h1>
-<p>Your Journey Begins With Us</p>
-</header>
-
-<nav>
+<nav class="navbar">
+<h2>MSM Tours</h2>
+<div>
 <a href="/">Home</a>
 <a href="/packages">Packages</a>
 <a href="/booking">Book</a>
 <a href="/contact">Contact</a>
+
+{% if session.get("user") %}
+<span>Welcome {{session["user"]}}</span>
+<a href="/logout">Logout</a>
+{% else %}
+<a href="/login">Login</a>
+{% endif %}
+
+</div>
 </nav>
 
 <!-- SLIDER -->
 <div class="slider">
-
-  <div class="slides">
-     <img src="/static/images/italy.jpg">
-    <img src="/static/images/maldives.jpg">
-    <img src="/static/images/wild.jpg">
-    <img src="/static/images/dubai.jpg">
-    <img src="/static/images/tajmahal.jpg">
-    <img src="/static/images/fallsboat.jpg">
-    <img src="/static/images/hampi.jpg">
-    <img src="/static/images/boathouse.jpg">
-    <img src="/static/images/camel.jpg">
-    <img src="/static/images/boat.jpg">
-    <img src="/static/images/coorg.jpg">
-    <img src="/static/images/singapore.jpg">
-    <img src="/static/images/manali.jpg">
-    <img src="/static/images/cruise.jpg">
-    <img src="/static/images/middleeast.jpg">
-    <img src="/static/images/ooty.jpg">
-    <img src="/static/images/rajasthan.jpg">
-    <img src="/static/images/vac.jpg">
-  </div>
-
-  <!-- CENTER TEXT -->
-  <div class="slider-text">
-    <h1>MSM Tours & Travels</h1>
-    <p>Your Journey Begins With Us</p>
-  </div>
-
+<div class="slides">
+<img src="/static/images/italy.jpg">
+<img src="/static/images/maldives.jpg">
+<img src="/static/images/wild.jpg">
+<img src="/static/images/dubai.jpg">
+<img src="/static/images/tajmahal.jpg">
+<img src="/static/images/fallsboat.jpg">
+<img src="/static/images/hampi.jpg">
+<img src="/static/images/boathouse.jpg">
+<img src="/static/images/camel.jpg">
+<img src="/static/images/boat.jpg">
+<img src="/static/images/coorg.jpg">
+<img src="/static/images/singapore.jpg">
+<img src="/static/images/manali.jpg">
+<img src="/static/images/cruise.jpg">
+<img src="/static/images/middleeast.jpg">
+<img src="/static/images/ooty.jpg">
+<img src="/static/images/rajasthan.jpg">
+<img src="/static/images/vac.jpg">
+</div>
 </div>
 
-<div class="welcome">
-<h2>Welcome to MSM Tours & Travels</h2>
-<p>Explore the best destinations with affordable packages.</p>
+<!-- ADD REVIEW -->
+<div class="review-box">
+<form method="POST" action="/review">
+<textarea name="review" placeholder="Write your review"></textarea>
+<button type="submit">Submit</button>
+</form>
+</div>
+
+<!-- SHOW REVIEWS -->
+<h2 class="section-title">Customer Reviews</h2>
+<div class="reviews">
+{% for r in reviews %}
+<div class="card">
+<h3>{{r.name}}</h3>
+<p>{{r.review}}</p>
+</div>
+{% endfor %}
 </div>
 
 </body>

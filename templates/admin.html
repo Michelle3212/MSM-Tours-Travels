@@ -1,21 +1,16 @@
 <h1>Admin Dashboard</h1>
 
-<table border="1">
-
-<tr>
-<th>Name</th>
-<th>Package</th>
-<th>Date</th>
-</tr>
-
-{% for b in bookings %}
-
-<tr>
-<td>{{b.name}}</td>
-<td>{{b.package}}</td>
-<td>{{b.date}}</td>
-</tr>
-
+<h2>Users</h2>
+{% for u in users %}
+<p>{{u.name}} - {{u.email}}</p>
 {% endfor %}
 
-</table>
+<h2>Bookings</h2>
+{% for b in bookings %}
+<p>{{b.name}} - {{b.package}} - {{b.date}}</p>
+{% endfor %}
+
+<h2>Messages</h2>
+{% for m in messages %}
+<p>{{m.name}}: {{m.message}}</p>
+{% endfor %}

@@ -1,148 +1,111 @@
-/* PACKAGES GRID */
+body{
+margin:0;
+font-family:Arial;
+background:#f4f4f4;
+}
+
+/* NAVBAR */
+.navbar{
+display:flex;
+justify-content:space-between;
+background:#0b5394;
+color:white;
+padding:15px;
+}
+
+.navbar a{
+color:white;
+margin:10px;
+text-decoration:none;
+}
+
+/* SLIDER */
+.slider{
+height:400px;
+overflow:hidden;
+}
+
+.slides{
+display:flex;
+width:1800%;
+animation:slide 40s infinite;
+}
+
+.slides img{
+width:100%;
+height:400px;
+object-fit:cover;
+}
+
+@keyframes slide{
+0%{transform:translateX(0);}
+100%{transform:translateX(-1700%);}
+}
+
+/* PACKAGES */
 .packages{
 display:flex;
-justify-content:center;
-gap:30px;
 flex-wrap:wrap;
-padding:30px;
+justify-content:center;
+gap:20px;
+padding:20px;
 }
 
-/* CARD DESIGN */
 .card{
 background:white;
-width:260px;
-border-radius:12px;
-box-shadow:0 6px 20px rgba(0,0,0,0.2);
-overflow:hidden;
+width:250px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
 text-align:center;
-transition:0.3s;
 }
 
-/* HOVER EFFECT */
-.card:hover{
-transform:translateY(-10px);
-}
-
-/* IMAGE SAME SIZE */
 .card img{
 width:100%;
 height:180px;
 object-fit:cover;
 }
 
-/* TITLE */
-.card h3{
-margin:10px 0;
-}
-
-/* PRICE STYLE */
-.card p{
-font-size:20px;
-font-weight:bold;
-color:#ff5733;
-}
-
-/* BUTTON */
-.card button{
+button{
 background:#0b5394;
 color:white;
+padding:10px;
 border:none;
-padding:14px 25px;
-margin:12px;
+margin:10px;
 cursor:pointer;
-border-radius:8px;
-font-size:16px;
-font-weight:bold;
-transition:0.3s;
 }
 
-.card button:hover{
-background:#ff5733;
-transform:scale(1.1);
-}
-
-.slider{
-width:100%;
-height:400px;
-overflow:hidden;
-}
-
-.slides{
+/* FORM */
+.form{
+width:300px;
+margin:30px auto;
 display:flex;
-animation:slide 20s infinite;
+flex-direction:column;
+gap:10px;
 }
 
-.slides img{
-width:100%;
-height:400px;
-object-fit:cover;
-}
-
-@keyframes slide{
-0%{transform:translateX(0);}
-11%{transform:translateX(-100%);}
-22%{transform:translateX(-200%);}
-33%{transform:translateX(-300%);}
-44%{transform:translateX(-400%);}
-55%{transform:translateX(-500%);}
-66%{transform:translateX(-600%);}
-77%{transform:translateX(-700%);}
-88%{transform:translateX(-800%);}
-100%{transform:translateX(0);}
-}
-
-.slider{
-position:relative;
-width:100%;
-height:400px;
-overflow:hidden;
-}
-
-.slides{
-display:flex;
-width:900%; /* 18 images */
-animation:slide 45s infinite; /* 5 sec × 18 images */
-}
-
-.slides img{
-width:100%;
-height:400px;
-object-fit:cover;
-}
-
-/* SLIDE ANIMATION */
-@keyframes slide{
-0%{transform:translateX(0);}
-11%{transform:translateX(-100%);}
-22%{transform:translateX(-200%);}
-33%{transform:translateX(-300%);}
-44%{transform:translateX(-400%);}
-55%{transform:translateX(-500%);}
-66%{transform:translateX(-600%);}
-77%{transform:translateX(-700%);}
-88%{transform:translateX(-800%);}
-100%{transform:translateX(0);}
-}
-
-/* CENTER TEXT */
-.slider-text{
-position:absolute;
-top:20px;   /* 👈 TOP position */
-left:50%;
-transform:translateX(-50%);
+.section-title{
 text-align:center;
-color:white;
-background:rgba(0,0,0,0.6);
-padding:15px 30px;
+margin:20px;
+}
+
+/* BACKGROUND IMAGE (CHANGE PATH YOURSELF) */
+.bg-booking{
+background:url('/static/images/bg.jpg') no-repeat center center/cover;
+height:100vh;
+}
+
+/* GLASS EFFECT FORM */
+.glass{
+background:rgba(255,255,255,0.2);
+backdrop-filter:blur(10px);
+padding:20px;
 border-radius:10px;
-z-index:10;
 }
 
-.slider-text h1{
-font-size:35px;
-margin:0;
-}
-
-.slider-text p{
-font-size:18px;
+/* REVIEWS */
+.reviews{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
 }
