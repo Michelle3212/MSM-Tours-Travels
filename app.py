@@ -13,33 +13,184 @@ def get_db():
 
 # ================= PACKAGES DATA =================
 all_packages = [
+
     {
-        "name":"Goa",
-        "price":"15000",
-        "image":"goa.jpg",
+        "name":"Kerala Boathouse",
+        "price":"25000",
+        "image":"boathouse.jpg",
         "itinerary":[
-            "Day 1: Arrival & Beach visit",
-            "Day 2: Water sports & sightseeing",
-            "Day 3: Shopping & departure"
+            "Day 1: Arrival in Alleppey",
+            "Day 2: Houseboat stay",
+            "Day 3: Backwater cruise & departure"
         ],
-        "inclusions":"Hotel, Breakfast, Transport",
-        "exclusions":"Flights, Personal expenses",
-        "facilities":"Free WiFi, Pool, AC Rooms"
+        "inclusions":"Houseboat, Meals, Sightseeing",
+        "exclusions":"Flights",
+        "facilities":"Luxury Boat, AC Rooms"
     },
+
     {
-        "name":"Manali",
-        "price":"18000",
-        "image":"manali.jpg",
+        "name":"Rajasthan",
+        "price":"30000",
+        "image":"rajasthan.jpg",
         "itinerary":[
-            "Day 1: Arrival",
-            "Day 2: Snow activities",
-            "Day 3: Solang Valley",
+            "Day 1: Jaipur visit",
+            "Day 2: Udaipur sightseeing",
+            "Day 3: Desert safari",
             "Day 4: Departure"
         ],
-        "inclusions":"Hotel, Meals, Transport",
+        "inclusions":"Hotel, Transport",
         "exclusions":"Flights",
-        "facilities":"Heater, Mountain View"
+        "facilities":"Desert Camp, Cultural Shows"
+    },
+
+    {
+        "name":"Paris",
+        "price":"120000",
+        "image":"paris.jpg",
+        "itinerary":[
+            "Day 1: Arrival",
+            "Day 2: Eiffel Tower & city tour",
+            "Day 3: Museums & shopping",
+            "Day 4: Departure"
+        ],
+        "inclusions":"Hotel, Visa, Breakfast",
+        "exclusions":"Flights",
+        "facilities":"Luxury Stay, Guide"
+    },
+
+    {
+        "name":"Singapore",
+        "price":"80000",
+        "image":"singapore.jpg",
+        "itinerary":[
+            "Day 1: Arrival",
+            "Day 2: Universal Studios",
+            "Day 3: City tour",
+            "Day 4: Departure"
+        ],
+        "inclusions":"Hotel, Transport",
+        "exclusions":"Flights",
+        "facilities":"City Tour, Theme Parks"
+    },
+
+    {
+        "name":"Dubai",
+        "price":"60000",
+        "image":"dubai.jpg",
+        "itinerary":[
+            "Day 1: Arrival",
+            "Day 2: City tour",
+            "Day 3: Desert safari",
+            "Day 4: Departure"
+        ],
+        "inclusions":"Hotel, Visa, Transport",
+        "exclusions":"Flights",
+        "facilities":"Luxury Stay, Safari"
+    },
+
+    {
+        "name":"Ooty",
+        "price":"15000",
+        "image":"ooty.jpg",
+        "itinerary":[
+            "Day 1: Arrival",
+            "Day 2: Botanical Garden",
+            "Day 3: Lake visit",
+            "Day 4: Departure"
+        ],
+        "inclusions":"Hotel, Breakfast",
+        "exclusions":"Transport",
+        "facilities":"Hill View, Cool Climate"
+    },
+
+    {
+        "name":"Coorg",
+        "price":"20000",
+        "image":"coorg.jpg",
+        "itinerary":[
+            "Day 1: Arrival",
+            "Day 2: Coffee estates",
+            "Day 3: Abbey Falls",
+            "Day 4: Departure"
+        ],
+        "inclusions":"Hotel",
+        "exclusions":"Transport",
+        "facilities":"Nature Stay"
+    },
+
+    {
+        "name":"Odisha",
+        "price":"22000",
+        "image":"odishawild.jpg",
+        "itinerary":[
+            "Day 1: Puri visit",
+            "Day 2: Konark Sun Temple",
+            "Day 3: Chilika Lake",
+            "Day 4: Departure"
+        ],
+        "inclusions":"Hotel, Transport",
+        "exclusions":"Flights",
+        "facilities":"Temple Tour, Beach"
+    },
+
+    {
+        "name":"Maldives",
+        "price":"90000",
+        "image":"maldives.jpg",
+        "itinerary":[
+            "Day 1: Arrival",
+            "Day 2: Beach & resort stay",
+            "Day 3: Water activities",
+            "Day 4: Departure"
+        ],
+        "inclusions":"Resort, Meals",
+        "exclusions":"Flights",
+        "facilities":"Private Beach, Water Villa"
+    },
+
+    {
+        "name":"Vietnam",
+        "price":"70000",
+        "image":"vietnam.jpg",
+        "itinerary":[
+            "Day 1: Arrival",
+            "Day 2: City tour",
+            "Day 3: Cruise experience",
+            "Day 4: Departure"
+        ],
+        "inclusions":"Hotel, Guide",
+        "exclusions":"Flights",
+        "facilities":"Cruise, Cultural Tour"
+    },
+
+    {
+        "name":"Mysore",
+        "price":"12000",
+        "image":"mysore.jpg",
+        "itinerary":[
+            "Day 1: Palace visit",
+            "Day 2: Zoo & gardens",
+            "Day 3: Departure"
+        ],
+        "inclusions":"Hotel",
+        "exclusions":"Transport",
+        "facilities":"City Tour"
+    },
+
+    {
+        "name":"Hampi Karnataka",
+        "price":"14000",
+        "image":"hampi.jpg",
+        "itinerary":[
+            "Day 1: Temple visit",
+            "Day 2: Heritage sites",
+            "Day 3: Departure"
+        ],
+        "inclusions":"Hotel",
+        "exclusions":"Transport",
+        "facilities":"Historical Tour"
     }
+
 ]
 
 # ================= HOME =================
