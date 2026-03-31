@@ -28,6 +28,9 @@ def packages():
         {"name":"Coorg","price":"20000","image":"coorg.jpg"},
         {"name":"Manali","price":"18000","image":"manali.jpg"},
         {"name":"Dubai","price":"60000","image":"dubai.jpg"}
+        {"name":"Ooty","price":"20000","image":"ooty.jpg"}
+        {"name":"Rajasthan","price":"40000","image":"rajasthan.jpg"}
+        {"name":"Singapore","price":"40000","image":"singapore.jpg"}
     ]
 
     if search:
@@ -135,4 +138,4 @@ def dashboard():
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
-    app.run(host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=port) 
