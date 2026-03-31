@@ -184,3 +184,29 @@ height:300px;
 object-fit:cover;
 border-radius:10px;
 }
+/* WHY CHOOSE US */
+.why-us{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+padding:30px;
+}
+
+.why-card{
+background:white;
+width:180px;
+padding:20px;
+text-align:center;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+
+.why-card:hover{
+transform:translateY(-8px);
+}
+
+.why-card h3{
+color:#0b5394;
+}
