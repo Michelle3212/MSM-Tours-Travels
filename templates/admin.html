@@ -1,16 +1,50 @@
-<h1>Admin Dashboard</h1>
+<!DOCTYPE html>
+<html>
 
-<h2>Users</h2>
+<head>
+<title>Admin Dashboard</title>
+
+<!-- ✅ REQUIRED -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+<h2>MSM Tours - Admin</h2>
+<div>
+<a href="/">Home</a>
+<a href="/logout">Logout</a>
+</div>
+</nav>
+
+<h1 class="section-title">Admin Dashboard</h1>
+
+<!-- USERS -->
+<h2 class="section-title">Users</h2>
+<div class="dashboard-box">
 {% for u in users %}
-<p>{{u.name}} - {{u.email}}</p>
+<p><b>{{u.name}}</b> - {{u.email}}</p>
 {% endfor %}
+</div>
 
-<h2>Bookings</h2>
+<!-- BOOKINGS -->
+<h2 class="section-title">Bookings</h2>
+<div class="dashboard-box">
 {% for b in bookings %}
-<p>{{b.name}} - {{b.package}} - {{b.date}}</p>
+<p><b>{{b.name}}</b> - {{b.package}} - {{b.date}}</p>
 {% endfor %}
+</div>
 
-<h2>Messages</h2>
+<!-- MESSAGES -->
+<h2 class="section-title">Messages</h2>
+<div class="dashboard-box">
 {% for m in messages %}
-<p>{{m.name}}: {{m.message}}</p>
+<p><b>{{m.name}}</b>: {{m.message}}</p>
 {% endfor %}
+</div>
+
+</body>
+</html>

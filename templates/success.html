@@ -1,7 +1,34 @@
-<h1>Booking Confirmed!</h1>
+<!DOCTYPE html>
+<html>
 
-<p>Thank you {{name}}.</p>
+<head>
+<title>Booking Success</title>
 
-<p>Your {{package}} trip has been booked successfully.</p>
+<!-- ✅ IMPORTANT -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<a href="/">Return Home</a>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+<h2>MSM Tours</h2>
+<div>
+<a href="/">Home</a>
+<a href="/packages">Packages</a>
+</div>
+</nav>
+
+<div class="success-box">
+<h1>🎉 Booking Confirmed!</h1>
+
+<p>Thank you <b>{{name}}</b>.</p>
+
+<p>Your <b>{{package}}</b> trip has been booked successfully.</p>
+
+<a href="/"><button>Return Home</button></a>
+</div>
+
+</body>
+</html>
