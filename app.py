@@ -5,28 +5,14 @@ import os
 app = Flask(__name__)
 app.secret_key = "secret123"
 
+# DATABASE
 def get_db():
     conn = sqlite3.connect("database.db")
     conn.row_factory = sqlite3.Row
     return conn
 
-# HOME
-@app.route("/")
-def home():
-    conn = get_db()
-    reviews = conn.execute("SELECT * FROM reviews").fetchall()
-    conn.close()
-    return render_template("index.html", reviews=reviews)
-
-# PACKAGES
-@app.route("/package/<name>")
-def package_detail(name):
-    for p in all_packages:
-        if p["name"].lower() == name.lower():
-            return render_template("package_detail.html", package=p)
-    return "Package not found"
-    
-   all_packages = [
+# ================= PACKAGES DATA =================
+all_packages = [
     {
         "name":"Goa",
         "price":"15000",
@@ -40,7 +26,6 @@ def package_detail(name):
         "exclusions":"Flights, Personal expenses",
         "facilities":"Free WiFi, Pool, AC Rooms"
     },
-
     {
         "name":"Manali",
         "price":"18000",
@@ -56,6 +41,20 @@ def package_detail(name):
         "facilities":"Heater, Mountain View"
     }
 ]
+
+# ================= HOME =================
+@app.route("/")
+def home():
+    conn = get_db()
+    reviews = conn.execute("SELECT * FROM reviews").fetchall()
+    conn.close()
+    return render_template("index.html", reviews=reviews)
+
+# ================= PACKAGES PAGE =================
+@app.route("/packages")
+def packages():
+    search = request.args.get("search")
+
     if search:
         filtered = [p for p in all_packages if search.lower() in p["name"].lower()]
     else:
@@ -63,7 +62,15 @@ def package_detail(name):
 
     return render_template("packages.html", packages=filtered)
 
-# REGISTER
+# ================= PACKAGE DETAIL =================
+@app.route("/package/<name>")
+def package_detail(name):
+    for p in all_packages:
+        if p["name"].lower() == name.lower():
+            return render_template("package_detail.html", package=p)
+    return "Package not found"
+
+# ================= REGISTER =================
 @app.route("/register", methods=["GET","POST"])
 def register():
     if request.method == "POST":
@@ -75,7 +82,7 @@ def register():
         return redirect("/login")
     return render_template("register.html")
 
-# LOGIN
+# ================= LOGIN =================
 @app.route("/login", methods=["GET","POST"])
 def login():
     if request.method == "POST":
@@ -91,13 +98,13 @@ def login():
             return "Invalid Login"
     return render_template("login.html")
 
-# LOGOUT
+# ================= LOGOUT =================
 @app.route("/logout")
 def logout():
     session.pop("user", None)
     return redirect("/")
 
-# BOOKING
+# ================= BOOKING =================
 @app.route("/booking", methods=["GET","POST"])
 def booking():
     if "user" not in session:
@@ -112,7 +119,7 @@ def booking():
         return render_template("success.html")
     return render_template("booking.html")
 
-# CONTACT
+# ================= CONTACT =================
 @app.route("/contact", methods=["GET","POST"])
 def contact():
     if request.method == "POST":
@@ -124,7 +131,7 @@ def contact():
         return "Message Sent!"
     return render_template("contact.html")
 
-# REVIEWS
+# ================= REVIEWS =================
 @app.route("/review", methods=["POST"])
 def review():
     conn = get_db()
@@ -134,7 +141,7 @@ def review():
     conn.close()
     return redirect("/")
 
-# ADMIN LOGIN
+# ================= ADMIN LOGIN =================
 @app.route("/admin", methods=["GET","POST"])
 def admin():
     if request.method == "POST":
@@ -145,7 +152,7 @@ def admin():
             return "Invalid Admin Login"
     return render_template("admin_login.html")
 
-# ADMIN DASHBOARD
+# ================= DASHBOARD =================
 @app.route("/dashboard")
 def dashboard():
     if "admin" not in session:
@@ -159,6 +166,7 @@ def dashboard():
 
     return render_template("admin.html", users=users, bookings=bookings, messages=messages)
 
+# ================= RUN =================
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
-    app.run(host="0.0.0.0", port=port) 
+    app.run(host="0.0.0.0", port=port)
