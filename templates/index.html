@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 <title>MSM Tours</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
 
 <body>
 
+<!-- NAVBAR -->
 <nav class="navbar">
 <h2>MSM Tours</h2>
 <div>
@@ -30,8 +32,8 @@
 <div class="slider">
   <div class="slides">
 
-    <!-- ORIGINAL IMAGES -->
-    <img src="/static/images/italy.jpg">
+    <!-- IMAGES -->
+    <img src="/static/images/cruise.jpg">
     <img src="/static/images/maldives.jpg">
     <img src="/static/images/wild.jpg">
     <img src="/static/images/dubai.jpg">
@@ -50,8 +52,8 @@
     <img src="/static/images/rajasthan.jpg">
     <img src="/static/images/vac.jpg">
 
-    <!-- DUPLICATE SAME IMAGES AGAIN (IMPORTANT) -->
-    <img src="/static/images/italy.jpg">
+    <!-- DUPLICATE FOR LOOP -->
+    <img src="/static/images/cruise.jpg">
     <img src="/static/images/maldives.jpg">
     <img src="/static/images/wild.jpg">
     <img src="/static/images/dubai.jpg">
@@ -73,6 +75,7 @@
   </div>
 </div>
 
+<!-- FEATURED OFFERS -->
 <h2 class="section-title">Featured Offers</h2>
 
 <div class="packages">
@@ -81,85 +84,90 @@
 <img src="/static/images/goa.jpg">
 <h3>Goa Special</h3>
 <p>₹12000</p>
-<a href="/booking"><button>Book Now</button></a>
+<a href="/package/Goa"><button>View Details</button></a>
 </div>
 
 <div class="card">
 <img src="/static/images/manali.jpg">
 <h3>Manali Snow Deal</h3>
 <p>₹16000</p>
-<a href="/booking"><button>Book Now</button></a>
+<a href="/package/Manali"><button>View Details</button></a>
 </div>
 
 <div class="card">
 <img src="/static/images/dubai.jpg">
 <h3>Dubai Offer</h3>
 <p>₹55000</p>
-<a href="/booking"><button>Book Now</button></a>
+<a href="/package/Dubai"><button>View Details</button></a>
 </div>
 
 </div>
 
+<!-- ABOUT -->
 <section class="about">
 <h2>About MSM Tours & Travels</h2>
-
 <p>
-MSM Tours & Travels is dedicated to providing unforgettable travel experiences.
-We offer the best domestic and international packages at affordable prices,
-ensuring comfort, safety, and memorable journeys for our customers.
+MSM Tours & Travels provides unforgettable travel experiences with affordable
+packages, comfort, and safety. We ensure every journey becomes a memory.
 </p>
-
 </section>
+
+<!-- WHY CHOOSE US -->
 <h2 class="section-title">Why Choose Us</h2>
 
 <div class="why-us">
 
 <div class="why-card">
+<div class="icon">💳</div>
 <h3>Safe Checkout</h3>
 <p>Secure Payment</p>
 </div>
 
 <div class="why-card">
+<div class="icon">🏨</div>
 <h3>700+</h3>
 <p>Hotels & Transport</p>
 </div>
 
 <div class="why-card">
+<div class="icon">👨‍💼</div>
 <h3>25+</h3>
 <p>Expert Team</p>
 </div>
 
 <div class="why-card">
+<div class="icon">🎧</div>
 <h3>24/7</h3>
 <p>Support</p>
 </div>
 
 <div class="why-card">
+<div class="icon">🏷️</div>
 <h3>Best</h3>
 <p>Best Offers</p>
 </div>
 
 <div class="why-card">
+<div class="icon">🌍</div>
 <h3>30+</h3>
 <p>Destinations</p>
 </div>
 
 </div>
 
+<!-- GALLERY -->
 <h2 class="section-title">Gallery</h2>
 
 <div class="gallery">
-
 <img src="/static/images/goa.jpg">
 <img src="/static/images/manali.jpg">
 <img src="/static/images/dubai.jpg">
 <img src="/static/images/ooty.jpg">
 <img src="/static/images/kerala.jpg">
 <img src="/static/images/singapore.jpg">
-
 </div>
 
-<!-- ADD REVIEW -->
+<!-- REVIEW -->
 <div class="review-box">
 <form method="POST" action="/review">
 <textarea name="review" placeholder="Write your review"></textarea>
@@ -167,7 +175,6 @@ ensuring comfort, safety, and memorable journeys for our customers.
 </form>
 </div>
 
-<!-- SHOW REVIEWS -->
 <h2 class="section-title">Customer Reviews</h2>
 <div class="reviews">
 {% for r in reviews %}
@@ -177,6 +184,11 @@ ensuring comfort, safety, and memorable journeys for our customers.
 </div>
 {% endfor %}
 </div>
+
+<!-- FOOTER -->
+<footer class="footer">
+<p>© 2026 MSM Tours & Travels | All Rights Reserved</p>
+</footer>
 
 </body>
 </html>
