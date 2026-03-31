@@ -30,7 +30,7 @@ position:relative;
 .slides{
 display:flex;
 width:200%;  /* because images duplicated */
-animation:scroll 60s linear infinite;
+animation:scroll 40s linear infinite;
 }
 
 .slides img{
@@ -136,4 +136,35 @@ padding:30px;
 text-align:center;
 border-radius:12px;
 box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+/* ABOUT SECTION */
+.about{
+text-align:center;
+padding:40px;
+background:white;
+margin:20px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* GALLERY */
+.gallery{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+padding:20px;
+}
+
+.gallery img{
+width:250px;
+height:160px;
+object-fit:cover;
+border-radius:10px;
+transition:0.3s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
 }

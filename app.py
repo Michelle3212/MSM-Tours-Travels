@@ -30,7 +30,14 @@ def packages():
         {"name":"Dubai","price":"60000","image":"dubai.jpg"},
         {"name":"Ooty","price":"20000","image":"ooty.jpg"},
         {"name":"Rajasthan","price":"40000","image":"rajasthan.jpg"},
-        {"name":"Singapore","price":"40000","image":"singapore.jpg"},
+        {"name":"Paris","price":"200000","image":"paris.jpg"},
+        {"name":"Kerala BoatHouse","price":"40000","image":"boathouse.jpg"},
+        {"name":"Hampi Karnataka","price":"20000","image":"hampi.jpg"},
+        {"name":"Vietnam","price":"40000","image":"vietnam.jpg"},
+        {"name":"Maldives","price":"400000","image":"maldives.jpg"},
+        {"name":"Middle East ","price":"400000","image":"middleeast.jpg"},
+        {"name":"Odisha / Wild","price":"50000","image":"odishawild.jpg"},
+        {"name":"Mysore Royal","price":"40000","image":"mysore.jpg"},
     ]
 
     if search:
