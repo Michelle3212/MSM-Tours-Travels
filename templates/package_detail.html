@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{package.name}}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+<h2>MSM Tours</h2>
+<a href="/packages">Back</a>
+</nav>
+
+<div class="detail-box">
+
+<img src="/static/images/{{package.image}}">
+
+<h1>{{package.name}}</h1>
+<h3>₹{{package.price}}</h3>
+
+<h2>Itinerary</h2>
+<ul>
+{% for day in package.itinerary %}
+<li>{{day}}</li>
+{% endfor %}
+</ul>
+
+<h2>Inclusions</h2>
+<p>{{package.inclusions}}</p>
+
+<h2>Exclusions</h2>
+<p>{{package.exclusions}}</p>
+
+<h2>Facilities</h2>
+<p>{{package.facilities}}</p>
+
+<a href="/booking"><button>Book Now</button></a>
+
+</div>
+
+</body>
+</html>

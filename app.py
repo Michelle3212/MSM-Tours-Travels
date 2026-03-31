@@ -19,27 +19,43 @@ def home():
     return render_template("index.html", reviews=reviews)
 
 # PACKAGES
-@app.route("/packages")
-def packages():
-    search = request.args.get("search")
+@app.route("/package/<name>")
+def package_detail(name):
+    for p in all_packages:
+        if p["name"].lower() == name.lower():
+            return render_template("package_detail.html", package=p)
+    return "Package not found"
+    
+   all_packages = [
+    {
+        "name":"Goa",
+        "price":"15000",
+        "image":"goa.jpg",
+        "itinerary":[
+            "Day 1: Arrival & Beach visit",
+            "Day 2: Water sports & sightseeing",
+            "Day 3: Shopping & departure"
+        ],
+        "inclusions":"Hotel, Breakfast, Transport",
+        "exclusions":"Flights, Personal expenses",
+        "facilities":"Free WiFi, Pool, AC Rooms"
+    },
 
-    all_packages = [
-        {"name":"Goa","price":"15000","image":"goa.jpg"},
-        {"name":"Coorg","price":"20000","image":"coorg.jpg"},
-        {"name":"Manali","price":"18000","image":"manali.jpg"},
-        {"name":"Dubai","price":"60000","image":"dubai.jpg"},
-        {"name":"Ooty","price":"20000","image":"ooty.jpg"},
-        {"name":"Rajasthan","price":"40000","image":"rajasthan.jpg"},
-        {"name":"Paris","price":"200000","image":"paris.jpg"},
-        {"name":"Kerala BoatHouse","price":"40000","image":"boathouse.jpg"},
-        {"name":"Hampi Karnataka","price":"20000","image":"hampi.jpg"},
-        {"name":"Vietnam","price":"40000","image":"vietnam.jpg"},
-        {"name":"Maldives","price":"400000","image":"maldives.jpg"},
-        {"name":"Middle East ","price":"400000","image":"middleeast.jpg"},
-        {"name":"Odisha / Wild","price":"50000","image":"odishawild.jpg"},
-        {"name":"Mysore Royal","price":"40000","image":"mysore.jpg"},
-    ]
-
+    {
+        "name":"Manali",
+        "price":"18000",
+        "image":"manali.jpg",
+        "itinerary":[
+            "Day 1: Arrival",
+            "Day 2: Snow activities",
+            "Day 3: Solang Valley",
+            "Day 4: Departure"
+        ],
+        "inclusions":"Hotel, Meals, Transport",
+        "exclusions":"Flights",
+        "facilities":"Heater, Mountain View"
+    }
+]
     if search:
         filtered = [p for p in all_packages if search.lower() in p["name"].lower()]
     else:
