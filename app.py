@@ -23,14 +23,34 @@ def get_db():
     conn.row_factory = sqlite3.Row
     return conn
 
-# OTP
+# OTP STORE
 otp_store = {}
 
-# PACKAGES (IMPORTANT: SLUG MUST MATCH LINKS)
+# PACKAGES
 all_packages = [
     {"name":"Kerala Boathouse","slug":"kerala-boathouse","price":"25000","image":"boathouse.jpg"},
     {"name":"Dubai","slug":"dubai","price":"60000","image":"dubai.jpg"},
-    {"name":"Maldives","slug":"maldives","price":"90000","image":"maldives.jpg"}
+    {"name":"Maldives","slug":"maldives","price":"90000","image":"maldives.jpg"},
+    {"name":"Ooty","slug":"ooty","price":"19000","image":"ooty.jpg"},
+    {"name":"Goa Beach","slug":"goa_beach","price":"90000","image":"goa.jpg"},
+    {"name":"Hampi Karnataka","slug":"hampi_karnataka","price":"9000","image":"hampi.jpg"},
+    {"name":"India Tour","slug":"india_tour","price":"200000","image":"india tour.jpg"},
+    {"name":"Italy","slug":"italy","price":"200000","image":"italy.jpg"},
+    {"name":"Manali","slug":"manali","price":"30000","image":"manali.jpg"},
+    {"name":"Middle East Tour","slug":"middle_east_tour","price":"300000","image":"middleeast.jpg"},
+    {"name":"Mysore","slug":"mysore","price":"9000","image":"mysore.jpg"},
+    {"name":"Niagara - USA","slug":"niagara_usa","price":"300000","image":"niagara.jpg"},
+    {"name":"Odisha Wild","slug":"odisha_wild","price":"20000","image":"odishawild.jpg"},
+    {"name":"Paris","slug":"paris","price":"200000","image":"paris.jpg"},
+    {"name":"Rajasthan","slug":"rajasthan","price":"40000","image":"rajasthan.jpg"},
+    {"name":"Singapore","slug":"singapore","price":"100000","image":"singapore.jpg"},
+    {"name":"Himalayas","slug":"himalayas","price":"40000","image":"skii.jpg"},
+    {"name":"Delhi","slug":"delhi","price":"40000","image":"tajmahal.jpg"},
+    {"name":"World Tour","slug":"world_tour","price":"600000","image":"tour world.jpg"},
+    {"name":"Vietnam","slug":"vietnam","price":"90000","image":"vietnam.jpg"},
+    {"name":"Thailand","slug":"thailand","price":"90000","image":"vac.jpg"},
+    {"name":"Bandipur - Mudumalai Wildlife","slug":"bandipur_mudumalai_wildlife","price":"15000","image":"Wildlife.jpg"},
+    {"name":"Nagarhole Tiger Reserve","slug":"nagarhole_tiger_reserve","price":"12000","image":"wild.jpg"},
 ]
 
 # HOME
@@ -41,18 +61,23 @@ def home():
     conn.close()
     return render_template("index.html", reviews=reviews)
 
-# PACKAGES PAGE
+# PACKAGES
 @app.route("/packages")
 def packages():
     return render_template("packages.html", packages=all_packages)
 
-# PACKAGE DETAILS (FIXED)
+# PACKAGE DETAIL
 @app.route("/package/<slug>")
 def package_detail(slug):
     package = next((p for p in all_packages if p["slug"] == slug), None)
     if package:
         return render_template("package_detail.html", package=package)
     return "Package not found"
+
+# 🔥 REGISTER PAGE (FIXED)
+@app.route("/register")
+def register():
+    return redirect("/send-otp")
 
 # SEND OTP
 @app.route("/send-otp", methods=["GET","POST"])
@@ -117,6 +142,12 @@ def login():
             return render_template("login.html", error="Invalid login")
 
     return render_template("login.html")
+
+# LOGOUT (ADD THIS)
+@app.route("/logout")
+def logout():
+    session.pop("user", None)
+    return redirect("/")
 
 # BOOKING
 @app.route("/booking", methods=["GET","POST"])
