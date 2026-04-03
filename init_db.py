@@ -16,8 +16,11 @@ cursor.execute("""
 CREATE TABLE IF NOT EXISTS bookings(
 id INTEGER PRIMARY KEY AUTOINCREMENT,
 name TEXT,
+email TEXT,
+phone TEXT,
 package TEXT,
-date TEXT
+date TEXT,
+message TEXT
 )
 """)
 
