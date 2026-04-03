@@ -8,13 +8,30 @@
 
 <body>
 
-<nav class="navbar"><h2>MSM Tours</h2></nav>
+<nav class="navbar">
+<h2>MSM Tours</h2>
+<div>
+<a href="/">Home</a>
+<a href="/packages">Packages</a>
+</div>
+</nav>
 
 <form method="POST" class="form">
+
 <h2>Contact Us</h2>
-<input type="text" name="name" placeholder="Your Name">
-<textarea name="message" placeholder="Message"></textarea>
+
+<input type="text" name="name" placeholder="Your Name" required>
+
+<textarea name="message" placeholder="Message" required></textarea>
+
 <button type="submit">Send</button>
+
+{% if success %}
+<p style="color:green; text-align:center;">
+Message sent successfully!
+</p>
+{% endif %}
+
 </form>
 
 </body>

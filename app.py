@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, session
 import sqlite3
 import os
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 app.secret_key = "secret123"
@@ -11,195 +12,19 @@ def get_db():
     conn.row_factory = sqlite3.Row
     return conn
 
-# ================= HELPER (FOR URL SAFE NAMES) =================
-def create_slug(name):
-    return name.lower().replace(" ", "-")
-
-# ================= PACKAGES DATA =================
+# ================= PACKAGES =================
 all_packages = [
+    {"name":"Kerala Boathouse","slug":"kerala-boathouse","price":"25000","image":"boathouse.jpg",
+     "itinerary":["Day 1: Arrival","Day 2: Houseboat","Day 3: Departure"],
+     "inclusions":"Houseboat, Meals","exclusions":"Flights","facilities":"Luxury Boat"},
 
-    {
-        "name":"Kerala Boathouse",
-        "slug":"kerala-boathouse",
-        "price":"25000",
-        "image":"boathouse.jpg",
-        "itinerary":[
-            "Day 1: Arrival in Alleppey",
-            "Day 2: Houseboat stay",
-            "Day 3: Backwater cruise & departure"
-        ],
-        "inclusions":"Houseboat, Meals, Sightseeing",
-        "exclusions":"Flights",
-        "facilities":"Luxury Boat, AC Rooms"
-    },
+    {"name":"Dubai","slug":"dubai","price":"60000","image":"dubai.jpg",
+     "itinerary":["Day 1: Arrival","Day 2: City Tour","Day 3: Safari"],
+     "inclusions":"Hotel","exclusions":"Flights","facilities":"Luxury Stay"},
 
-    {
-        "name":"Rajasthan",
-        "slug":"rajasthan",
-        "price":"30000",
-        "image":"rajasthan.jpg",
-        "itinerary":[
-            "Day 1: Jaipur visit",
-            "Day 2: Udaipur sightseeing",
-            "Day 3: Desert safari",
-            "Day 4: Departure"
-        ],
-        "inclusions":"Hotel, Transport",
-        "exclusions":"Flights",
-        "facilities":"Desert Camp"
-    },
-
-    {
-        "name":"Paris",
-        "slug":"paris",
-        "price":"120000",
-        "image":"paris.jpg",
-        "itinerary":[
-            "Day 1: Arrival",
-            "Day 2: Eiffel Tower",
-            "Day 3: Shopping",
-            "Day 4: Departure"
-        ],
-        "inclusions":"Hotel, Visa",
-        "exclusions":"Flights",
-        "facilities":"Luxury Stay"
-    },
-
-    {
-        "name":"Singapore",
-        "slug":"singapore",
-        "price":"80000",
-        "image":"singapore.jpg",
-        "itinerary":[
-            "Day 1: Arrival",
-            "Day 2: Universal Studios",
-            "Day 3: City tour"
-        ],
-        "inclusions":"Hotel",
-        "exclusions":"Flights",
-        "facilities":"Theme Parks"
-    },
-
-    {
-        "name":"Dubai",
-        "slug":"dubai",
-        "price":"60000",
-        "image":"dubai.jpg",
-        "itinerary":[
-            "Day 1: Arrival",
-            "Day 2: City tour",
-            "Day 3: Desert safari"
-        ],
-        "inclusions":"Hotel",
-        "exclusions":"Flights",
-        "facilities":"Luxury Stay"
-    },
-
-    {
-        "name":"Ooty",
-        "slug":"ooty",
-        "price":"15000",
-        "image":"ooty.jpg",
-        "itinerary":[
-            "Day 1: Arrival",
-            "Day 2: Garden visit",
-            "Day 3: Departure"
-        ],
-        "inclusions":"Hotel",
-        "exclusions":"Transport",
-        "facilities":"Hill View"
-    },
-
-    {
-        "name":"Coorg",
-        "slug":"coorg",
-        "price":"20000",
-        "image":"coorg.jpg",
-        "itinerary":[
-            "Day 1: Arrival",
-            "Day 2: Coffee estates",
-            "Day 3: Departure"
-        ],
-        "inclusions":"Hotel",
-        "exclusions":"Transport",
-        "facilities":"Nature Stay"
-    },
-
-    {
-        "name":"Odisha",
-        "slug":"odisha",
-        "price":"22000",
-        "image":"odishawild.jpg",
-        "itinerary":[
-            "Day 1: Puri",
-            "Day 2: Konark",
-            "Day 3: Chilika Lake"
-        ],
-        "inclusions":"Hotel",
-        "exclusions":"Flights",
-        "facilities":"Temple Tour"
-    },
-
-    {
-        "name":"Maldives",
-        "slug":"maldives",
-        "price":"90000",
-        "image":"maldives.jpg",
-        "itinerary":[
-            "Day 1: Arrival",
-            "Day 2: Resort stay",
-            "Day 3: Water sports"
-        ],
-        "inclusions":"Resort",
-        "exclusions":"Flights",
-        "facilities":"Private Beach"
-    },
-
-    {
-        "name":"Vietnam",
-        "slug":"vietnam",
-        "price":"70000",
-        "image":"vietnam.jpg",
-        "itinerary":[
-            "Day 1: Arrival",
-            "Day 2: City tour",
-            "Day 3: Cruise"
-        ],
-        "inclusions":"Hotel",
-        "exclusions":"Flights",
-        "facilities":"Cruise"
-    },
-
-    {
-        "name":"Mysore",
-        "slug":"mysore",
-        "price":"12000",
-        "image":"mysore.jpg",
-        "itinerary":[
-            "Day 1: Palace",
-            "Day 2: Zoo",
-            "Day 3: Departure"
-        ],
-        "inclusions":"Hotel",
-        "exclusions":"Transport",
-        "facilities":"City Tour"
-    },
-
-    {
-        "name":"Hampi Karnataka",
-        "slug":"hampi",
-        "price":"14000",
-        "image":"hampi.jpg",
-        "itinerary":[
-            "Day 1: Temples",
-            "Day 2: Heritage sites",
-            "Day 3: Departure"
-        ],
-        "inclusions":"Hotel",
-        "exclusions":"Transport",
-        "facilities":"Historical Tour"
-    }
-
+    {"name":"Maldives","slug":"maldives","price":"90000","image":"maldives.jpg",
+     "itinerary":["Day 1: Arrival","Day 2: Resort","Day 3: Water Sports"],
+     "inclusions":"Resort","exclusions":"Flights","facilities":"Private Beach"}
 ]
 
 # ================= HOME =================
@@ -235,11 +60,18 @@ def package_detail(slug):
 def register():
     if request.method == "POST":
         conn = get_db()
-        conn.execute("INSERT INTO users(name,email,password) VALUES (?,?,?)",
-                     (request.form["name"], request.form["email"], request.form["password"]))
+
+        hashed_pw = generate_password_hash(request.form["password"])
+
+        conn.execute(
+            "INSERT INTO users(name,email,password) VALUES (?,?,?)",
+            (request.form["name"], request.form["email"], hashed_pw)
+        )
         conn.commit()
         conn.close()
-        return redirect("/login")
+
+        return render_template("register.html", success=True)
+
     return render_template("register.html")
 
 # ================= LOGIN =================
@@ -247,21 +79,25 @@ def register():
 def login():
     if request.method == "POST":
         conn = get_db()
-        user = conn.execute("SELECT * FROM users WHERE email=? AND password=?",
-                            (request.form["email"], request.form["password"])).fetchone()
+        user = conn.execute(
+            "SELECT * FROM users WHERE email=?",
+            (request.form["email"],)
+        ).fetchone()
         conn.close()
 
-        if user:
+        if user and check_password_hash(user["password"], request.form["password"]):
             session["user"] = user["name"]
             return redirect("/")
         else:
-            return "Invalid Login"
+            return render_template("login.html", error="Invalid email or password")
+
     return render_template("login.html")
 
 # ================= LOGOUT =================
 @app.route("/logout")
 def logout():
     session.pop("user", None)
+    session.pop("admin", None)
     return redirect("/")
 
 # ================= BOOKING =================
@@ -271,51 +107,67 @@ def booking():
         return redirect("/login")
 
     if request.method == "POST":
+        name = request.form["name"]
+        package = request.form["package"]
+        date = request.form["date"]
+
         conn = get_db()
-        conn.execute("INSERT INTO bookings(name,package,date) VALUES (?,?,?)",
-                     (session["user"], request.form["package"], request.form["date"]))
+        conn.execute(
+            "INSERT INTO bookings(name,package,date) VALUES (?,?,?)",
+            (name, package, date)
+        )
         conn.commit()
         conn.close()
-        return render_template("success.html")
-    return render_template("booking.html")
+
+        return render_template("success.html", name=name, package=package, date=date)
+
+    return render_template("booking.html", packages=all_packages)
 
 # ================= CONTACT =================
 @app.route("/contact", methods=["GET","POST"])
 def contact():
     if request.method == "POST":
         conn = get_db()
-        conn.execute("INSERT INTO messages(name,message) VALUES (?,?)",
-                     (request.form["name"], request.form["message"]))
+        conn.execute(
+            "INSERT INTO messages(name,message) VALUES (?,?)",
+            (request.form["name"], request.form["message"])
+        )
         conn.commit()
         conn.close()
-        return "Message Sent!"
+
+        return render_template("contact.html", success=True)
+
     return render_template("contact.html")
 
 # ================= REVIEWS =================
 @app.route("/review", methods=["POST"])
 def review():
     conn = get_db()
-    conn.execute("INSERT INTO reviews(name,review) VALUES (?,?)",
-                 (session.get("user","Guest"), request.form["review"]))
+    conn.execute(
+        "INSERT INTO reviews(name,review) VALUES (?,?)",
+        (session.get("user","Guest"), request.form["review"])
+    )
     conn.commit()
     conn.close()
     return redirect("/")
 
-# ================= ADMIN =================
-@app.route("/admin", methods=["GET","POST"])
-def admin():
+# ================= ADMIN LOGIN =================
+@app.route("/admin-login", methods=["GET","POST"])
+def admin_login():
     if request.method == "POST":
         if request.form["username"] == "admin" and request.form["password"] == "admin123":
             session["admin"] = True
             return redirect("/dashboard")
         else:
-            return "Invalid Admin Login"
+            return render_template("admin_login.html", error="Invalid credentials")
+
     return render_template("admin_login.html")
 
+# ================= ADMIN DASHBOARD =================
 @app.route("/dashboard")
 def dashboard():
-    if "admin" not in session:
-        return redirect("/admin")
+    if not session.get("admin"):
+        return redirect("/admin-login")
 
     conn = get_db()
     users = conn.execute("SELECT * FROM users").fetchall()

@@ -3,10 +3,7 @@
 
 <head>
 <title>Admin Login</title>
-
-<!-- ✅ ADD VIEWPORT HERE -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link rel="stylesheet" href="/static/style.css">
 </head>
 
@@ -17,12 +14,21 @@
 </nav>
 
 <form method="POST" class="form">
+
 <h2>Admin Login</h2>
 
 <input name="username" placeholder="Username" required>
+
 <input name="password" type="password" placeholder="Password" required>
 
 <button type="submit">Login</button>
+
+{% if error %}
+<p style="color:red; text-align:center;">
+{{error}}
+</p>
+{% endif %}
+
 </form>
 
 </body>

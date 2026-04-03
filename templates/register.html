@@ -3,10 +3,7 @@
 
 <head>
 <title>Register</title>
-
-<!-- ✅ VERY IMPORTANT -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link rel="stylesheet" href="/static/style.css">
 </head>
 
@@ -17,6 +14,7 @@
 </nav>
 
 <form method="POST" class="form">
+
 <h2>Register</h2>
 
 <input type="text" name="name" placeholder="Name" required>
@@ -26,6 +24,16 @@
 <input type="password" name="password" placeholder="Password" required>
 
 <button type="submit">Register</button>
+
+{% if success %}
+<p style="color:green; text-align:center;">
+Registered successfully! Please login.
+</p>
+{% endif %}
+
+<p style="text-align:center;">
+Already have an account? <a href="/login">Login</a>
+</p>
 
 </form>
 
