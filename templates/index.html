@@ -26,8 +26,12 @@
 <a href="/register">Register</a>
 {% endif %}
 
+<!-- ALWAYS SHOW ADMIN LOGIN -->
+<a href="/admin-login">Admin</a>
+
+<!-- SHOW DASHBOARD ONLY AFTER LOGIN -->
 {% if session.get("admin") %}
-<a href="/dashboard">Admin Dashboard</a>
+<a href="/dashboard">Dashboard</a>
 {% endif %}
 
 </div>
