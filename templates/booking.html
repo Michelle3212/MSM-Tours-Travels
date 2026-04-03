@@ -3,10 +3,7 @@
 
 <head>
 <title>Booking</title>
-
-<!-- ✅ ADD HERE -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link rel="stylesheet" href="/static/style.css">
 </head>
 
@@ -17,9 +14,14 @@
 </nav>
 
 <form method="POST" class="form glass">
+
 <h2>Book Your Trip</h2>
 
 <input type="text" name="name" placeholder="Your Name" required>
+
+<input type="email" name="email" placeholder="Your Email" required>
+
+<input type="text" name="phone" placeholder="Phone Number" required>
 
 <select name="package" required>
 {% for p in packages %}
@@ -29,7 +31,10 @@
 
 <input type="date" name="date" required>
 
-<button type="submit">Confirm</button>
+<textarea name="message" placeholder="Any message"></textarea>
+
+<button type="submit">Confirm Booking</button>
+
 </form>
 
 </body>

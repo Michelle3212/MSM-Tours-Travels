@@ -156,19 +156,49 @@ def booking():
         return redirect("/login")
 
     if request.method == "POST":
+        name = request.form.get("name")
+        email = request.form.get("email")
+        phone = request.form.get("phone")
+        package = request.form.get("package")
+        date = request.form.get("date")
+        message = request.form.get("message")
+
+        # SAVE TO DATABASE
         conn = get_db()
         conn.execute("""
         INSERT INTO bookings(name,email,phone,package,date,message)
         VALUES (?,?,?,?,?,?)
-        """,(request.form["name"],request.form["email"],request.form["phone"],
-             request.form["package"],request.form["date"],request.form["message"]))
+        """,(name,email,phone,package,date,message))
         conn.commit()
         conn.close()
 
+        # SEND EMAIL TO ADMIN
+        try:
+            msg = Message(
+                "New Booking Received",
+                sender=app.config['MAIL_USERNAME'],
+                recipients=[app.config['MAIL_USERNAME']]
+            )
+
+            msg.body = f"""
+New Booking!
+
+Name: {name}
+Email: {email}
+Phone: {phone}
+Package: {package}
+Date: {date}
+Message: {message}
+"""
+            mail.send(msg)
+
+        except Exception as e:
+            print("Email Error:", e)
+
+        # SUCCESS MESSAGE
         return render_template("success.html",
-                               name=request.form["name"],
-                               package=request.form["package"],
-                               date=request.form["date"])
+                               name=name,
+                               package=package)
 
     return render_template("booking.html", packages=all_packages)
 
