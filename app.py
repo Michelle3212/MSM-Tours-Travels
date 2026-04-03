@@ -196,6 +196,32 @@ def dashboard():
     conn.close()
 
     return render_template("admin.html", users=users, bookings=bookings)
+    # DELETE USER
+@app.route("/delete-user/<int:id>")
+def delete_user(id):
+    if not session.get("admin"):
+        return redirect("/admin-login")
+
+    conn = get_db()
+    conn.execute("DELETE FROM users WHERE id=?", (id,))
+    conn.commit()
+    conn.close()
+
+    return redirect("/dashboard")
+
+
+# DELETE BOOKING
+@app.route("/delete-booking/<int:id>")
+def delete_booking(id):
+    if not session.get("admin"):
+        return redirect("/admin-login")
+
+    conn = get_db()
+    conn.execute("DELETE FROM bookings WHERE id=?", (id,))
+    conn.commit()
+    conn.close()
+
+    return redirect("/dashboard")
 
 # RUN
 if __name__ == "__main__":

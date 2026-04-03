@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 <title>Admin Dashboard</title>
-
-<!-- ✅ REQUIRED -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link rel="stylesheet" href="/static/style.css">
 </head>
 
@@ -25,25 +21,41 @@
 <!-- USERS -->
 <h2 class="section-title">Users</h2>
 <div class="dashboard-box">
+
 {% for u in users %}
-<p><b>{{u.name}}</b> - {{u.email}}</p>
+<div style="margin-bottom:15px;">
+<b>{{u.name}}</b><br>
+Email: {{u.email}}<br>
+
+<a href="/delete-user/{{u.id}}">
+<button style="background:red;">Delete User</button>
+</a>
+</div>
+<hr>
 {% endfor %}
+
 </div>
 
 <!-- BOOKINGS -->
 <h2 class="section-title">Bookings</h2>
 <div class="dashboard-box">
-{% for b in bookings %}
-<p><b>{{b.name}}</b> - {{b.package}} - {{b.date}}</p>
-{% endfor %}
-</div>
 
-<!-- MESSAGES -->
-<h2 class="section-title">Messages</h2>
-<div class="dashboard-box">
-{% for m in messages %}
-<p><b>{{m.name}}</b>: {{m.message}}</p>
+{% for b in bookings %}
+<div style="margin-bottom:15px;">
+<b>{{b.name}}</b><br>
+Email: {{b.email}}<br>
+Phone: {{b.phone}}<br>
+Package: {{b.package}}<br>
+Date: {{b.date}}<br>
+Message: {{b.message}}<br>
+
+<a href="/delete-booking/{{b.id}}">
+<button style="background:red;">Delete Booking</button>
+</a>
+</div>
+<hr>
 {% endfor %}
+
 </div>
 
 </body>
