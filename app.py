@@ -11,11 +11,16 @@ def get_db():
     conn.row_factory = sqlite3.Row
     return conn
 
+# ================= HELPER (FOR URL SAFE NAMES) =================
+def create_slug(name):
+    return name.lower().replace(" ", "-")
+
 # ================= PACKAGES DATA =================
 all_packages = [
 
     {
         "name":"Kerala Boathouse",
+        "slug":"kerala-boathouse",
         "price":"25000",
         "image":"boathouse.jpg",
         "itinerary":[
@@ -30,6 +35,7 @@ all_packages = [
 
     {
         "name":"Rajasthan",
+        "slug":"rajasthan",
         "price":"30000",
         "image":"rajasthan.jpg",
         "itinerary":[
@@ -40,78 +46,79 @@ all_packages = [
         ],
         "inclusions":"Hotel, Transport",
         "exclusions":"Flights",
-        "facilities":"Desert Camp, Cultural Shows"
+        "facilities":"Desert Camp"
     },
 
     {
         "name":"Paris",
+        "slug":"paris",
         "price":"120000",
         "image":"paris.jpg",
         "itinerary":[
             "Day 1: Arrival",
-            "Day 2: Eiffel Tower & city tour",
-            "Day 3: Museums & shopping",
+            "Day 2: Eiffel Tower",
+            "Day 3: Shopping",
             "Day 4: Departure"
         ],
-        "inclusions":"Hotel, Visa, Breakfast",
+        "inclusions":"Hotel, Visa",
         "exclusions":"Flights",
-        "facilities":"Luxury Stay, Guide"
+        "facilities":"Luxury Stay"
     },
 
     {
         "name":"Singapore",
+        "slug":"singapore",
         "price":"80000",
         "image":"singapore.jpg",
         "itinerary":[
             "Day 1: Arrival",
             "Day 2: Universal Studios",
-            "Day 3: City tour",
-            "Day 4: Departure"
+            "Day 3: City tour"
         ],
-        "inclusions":"Hotel, Transport",
+        "inclusions":"Hotel",
         "exclusions":"Flights",
-        "facilities":"City Tour, Theme Parks"
+        "facilities":"Theme Parks"
     },
 
     {
         "name":"Dubai",
+        "slug":"dubai",
         "price":"60000",
         "image":"dubai.jpg",
         "itinerary":[
             "Day 1: Arrival",
             "Day 2: City tour",
-            "Day 3: Desert safari",
-            "Day 4: Departure"
+            "Day 3: Desert safari"
         ],
-        "inclusions":"Hotel, Visa, Transport",
+        "inclusions":"Hotel",
         "exclusions":"Flights",
-        "facilities":"Luxury Stay, Safari"
+        "facilities":"Luxury Stay"
     },
 
     {
         "name":"Ooty",
+        "slug":"ooty",
         "price":"15000",
         "image":"ooty.jpg",
         "itinerary":[
             "Day 1: Arrival",
-            "Day 2: Botanical Garden",
-            "Day 3: Lake visit",
-            "Day 4: Departure"
+            "Day 2: Garden visit",
+            "Day 3: Departure"
         ],
-        "inclusions":"Hotel, Breakfast",
+        "inclusions":"Hotel",
         "exclusions":"Transport",
-        "facilities":"Hill View, Cool Climate"
+        "facilities":"Hill View"
     },
 
     {
         "name":"Coorg",
+        "slug":"coorg",
         "price":"20000",
         "image":"coorg.jpg",
         "itinerary":[
             "Day 1: Arrival",
             "Day 2: Coffee estates",
-            "Day 3: Abbey Falls",
-            "Day 4: Departure"
+            "Day 3: Departure"
         ],
         "inclusions":"Hotel",
         "exclusions":"Transport",
@@ -120,56 +127,57 @@ all_packages = [
 
     {
         "name":"Odisha",
+        "slug":"odisha",
         "price":"22000",
         "image":"odishawild.jpg",
         "itinerary":[
-            "Day 1: Puri visit",
-            "Day 2: Konark Sun Temple",
-            "Day 3: Chilika Lake",
-            "Day 4: Departure"
+            "Day 1: Puri",
+            "Day 2: Konark",
+            "Day 3: Chilika Lake"
         ],
-        "inclusions":"Hotel, Transport",
+        "inclusions":"Hotel",
         "exclusions":"Flights",
-        "facilities":"Temple Tour, Beach"
+        "facilities":"Temple Tour"
     },
 
     {
         "name":"Maldives",
+        "slug":"maldives",
         "price":"90000",
         "image":"maldives.jpg",
         "itinerary":[
             "Day 1: Arrival",
-            "Day 2: Beach & resort stay",
-            "Day 3: Water activities",
-            "Day 4: Departure"
+            "Day 2: Resort stay",
+            "Day 3: Water sports"
         ],
-        "inclusions":"Resort, Meals",
+        "inclusions":"Resort",
         "exclusions":"Flights",
-        "facilities":"Private Beach, Water Villa"
+        "facilities":"Private Beach"
     },
 
     {
         "name":"Vietnam",
+        "slug":"vietnam",
         "price":"70000",
         "image":"vietnam.jpg",
         "itinerary":[
             "Day 1: Arrival",
             "Day 2: City tour",
-            "Day 3: Cruise experience",
-            "Day 4: Departure"
+            "Day 3: Cruise"
         ],
-        "inclusions":"Hotel, Guide",
+        "inclusions":"Hotel",
         "exclusions":"Flights",
-        "facilities":"Cruise, Cultural Tour"
+        "facilities":"Cruise"
     },
 
     {
         "name":"Mysore",
+        "slug":"mysore",
         "price":"12000",
         "image":"mysore.jpg",
         "itinerary":[
-            "Day 1: Palace visit",
-            "Day 2: Zoo & gardens",
+            "Day 1: Palace",
+            "Day 2: Zoo",
             "Day 3: Departure"
         ],
         "inclusions":"Hotel",
@@ -179,10 +187,11 @@ all_packages = [
 
     {
         "name":"Hampi Karnataka",
+        "slug":"hampi",
         "price":"14000",
         "image":"hampi.jpg",
         "itinerary":[
-            "Day 1: Temple visit",
+            "Day 1: Temples",
             "Day 2: Heritage sites",
             "Day 3: Departure"
         ],
@@ -201,7 +210,7 @@ def home():
     conn.close()
     return render_template("index.html", reviews=reviews)
 
-# ================= PACKAGES PAGE =================
+# ================= PACKAGES =================
 @app.route("/packages")
 def packages():
     search = request.args.get("search")
@@ -214,10 +223,10 @@ def packages():
     return render_template("packages.html", packages=filtered)
 
 # ================= PACKAGE DETAIL =================
-@app.route("/package/<name>")
-def package_detail(name):
+@app.route("/package/<slug>")
+def package_detail(slug):
     for p in all_packages:
-        if p["name"].lower() == name.lower():
+        if p["slug"] == slug:
             return render_template("package_detail.html", package=p)
     return "Package not found"
 
@@ -292,7 +301,7 @@ def review():
     conn.close()
     return redirect("/")
 
-# ================= ADMIN LOGIN =================
+# ================= ADMIN =================
 @app.route("/admin", methods=["GET","POST"])
 def admin():
     if request.method == "POST":
@@ -303,7 +312,6 @@ def admin():
             return "Invalid Admin Login"
     return render_template("admin_login.html")
 
-# ================= DASHBOARD =================
 @app.route("/dashboard")
 def dashboard():
     if "admin" not in session:

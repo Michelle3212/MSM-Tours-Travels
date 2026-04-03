@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 <title>Packages</title>
-
-<!-- ✅ ADD THIS -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link rel="stylesheet" href="/static/style.css">
 </head>
 
@@ -24,19 +20,26 @@
 
 <h1 class="section-title">Tour Packages</h1>
 
-<form method="GET" style="text-align:center; margin-bottom:20px;">
+<form method="GET" style="text-align:center;">
 <input type="text" name="search" placeholder="Search destination">
 <button type="submit">Search</button>
 </form>
 
 <div class="packages">
+
 {% for p in packages %}
 <div class="card">
 <img src="/static/images/{{p.image}}">
 <h3>{{p.name}}</h3>
 <p>₹{{p.price}}</p>
-<a href="/package/{{p.name}}"><button>View Details</button></a></div>
+
+<a href="/package/{{p.slug}}">
+<button>View Details</button>
+</a>
+
+</div>
 {% endfor %}
+
 </div>
 
 </body>
