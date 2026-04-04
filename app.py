@@ -24,7 +24,11 @@ def get_db():
 # EMAIL BACKGROUND (NO LAG)
 def send_email_async(app, msg):
     with app.app_context():
-        mail.send(msg)
+        try:
+            mail.send(msg)
+            print("✅ Email sent")
+        except Exception as e:
+            print("❌ Email failed:", e)
 
 # PACKAGES
 all_packages = [
@@ -71,36 +75,38 @@ def package_detail(slug):
         return render_template("package_detail.html", package=package)
     return "Package not found"
 
-# BOOKING
+# BOOKING (FIXED - NO LOADING ISSUE)
 @app.route("/booking/<package>", methods=["GET","POST"])
 def booking(package):
+
     if request.method == "POST":
-        name = request.form["name"]
-        email = request.form["email"]
-        phone = request.form["phone"]
-        date = request.form["date"]
-        message = request.form["message"]
+        try:
+            name = request.form["name"]
+            email = request.form["email"]
+            phone = request.form["phone"]
+            date = request.form["date"]
+            message = request.form["message"]
 
-        # SAVE
-        conn = get_db()
-        conn.execute("""
-        INSERT INTO bookings(name,email,phone,package,date,message)
-        VALUES (?,?,?,?,?,?)
-        """,(name,email,phone,package,date,message))
-        conn.commit()
-        conn.close()
+            # SAVE TO DATABASE
+            conn = get_db()
+            conn.execute("""
+            INSERT INTO bookings(name,email,phone,package,date,message)
+            VALUES (?,?,?,?,?,?)
+            """,(name,email,phone,package,date,message))
+            conn.commit()
+            conn.close()
 
-        # EMAIL TO BOTH ADMINS
-        msg = Message(
-            "New Booking - MSM Tours",
-            sender=app.config['MAIL_USERNAME'],
-            recipients=[
-                "msmtoursandtravels2026@gmail.com",
-                "michellemagdalene885@gmail.com"
-            ]
-        )
+            # EMAIL TO ADMIN
+            msg = Message(
+                "New Booking - MSM Tours",
+                sender=app.config['MAIL_USERNAME'],
+                recipients=[
+                    "msmtoursandtravels2026@gmail.com",
+                    "michellemagdalene885@gmail.com"
+                ]
+            )
 
-        msg.body = f"""
+            msg.body = f"""
 New Booking Received!
 
 Name: {name}
@@ -111,9 +117,14 @@ Date: {date}
 Message: {message}
 """
 
-        mail.send(msg)
+            # 🚀 SEND EMAIL WITHOUT FREEZING PAGE
+            threading.Thread(target=send_email_async, args=(app, msg)).start()
 
-        return render_template("success.html", name=name, package=package)
+            # SUCCESS PAGE
+            return render_template("success.html", name=name, package=package)
+
+        except Exception as e:
+            return f"Error: {e}"
 
     return render_template("booking.html", package=package)
 
