@@ -111,7 +111,7 @@ Date: {date}
 Message: {message}
 """
 
-        threading.Thread(target=send_email_async, args=(app, msg)).start()
+        mail.send(msg)
 
         return render_template("success.html", name=name, package=package)
 
