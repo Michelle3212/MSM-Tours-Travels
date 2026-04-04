@@ -13,7 +13,7 @@ password TEXT
 """)
 
 cursor.execute("""
-CREATE TABLE IF NOT EXISTS bookings(
+CREATE TABLE bookings(
 id INTEGER PRIMARY KEY AUTOINCREMENT,
 name TEXT,
 email TEXT,

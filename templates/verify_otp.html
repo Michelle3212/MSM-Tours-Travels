@@ -1,6 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Verify OTP</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/static/style.css">
+
+<script>
+let timeLeft = 30;
+
+function startTimer() {
+    let timer = setInterval(function() {
+        document.getElementById("timer").innerText = timeLeft;
+
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            document.getElementById("resendBtn").style.display = "block";
+        }
+
+        timeLeft--;
+    }, 1000);
+}
+</script>
+
+</head>
+
+<body onload="startTimer()">
+
+<nav class="navbar">
+<h2>MSM Tours</h2>
+</nav>
+
+<div class="form glass">
+
+<h2>Verify OTP</h2>
+
+<p>OTP sent to your email (may take a few seconds)</p>
+
 <form method="POST" action="/verify-otp">
 <input type="hidden" name="email" value="{{email}}">
-<h2>Enter OTP</h2>
-<input type="text" name="otp" required>
+
+<input type="text" name="otp" placeholder="Enter OTP" required>
+
 <button type="submit">Verify</button>
 </form>
+
+<p>Resend OTP in <span id="timer">30</span> seconds</p>
+
+<form method="POST" action="/send-otp">
+<input type="hidden" name="email" value="{{email}}">
+<button id="resendBtn" style="display:none;">Resend OTP</button>
+</form>
+
+</div>
+
+</body>
+</html>

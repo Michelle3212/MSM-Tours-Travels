@@ -1,12 +1,9 @@
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request, redirect
 import sqlite3
 import os
-import random
 from flask_mail import Mail, Message
-from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
-app.secret_key = "secret123"
 
 # EMAIL CONFIG
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
@@ -22,9 +19,6 @@ def get_db():
     conn = sqlite3.connect("database.db")
     conn.row_factory = sqlite3.Row
     return conn
-
-# OTP STORE
-otp_store = {}
 
 # PACKAGES
 all_packages = [
@@ -56,17 +50,14 @@ all_packages = [
 # HOME
 @app.route("/")
 def home():
-    conn = get_db()
-    reviews = conn.execute("SELECT * FROM reviews").fetchall()
-    conn.close()
-    return render_template("index.html", reviews=reviews)
+    return render_template("index.html")
 
 # PACKAGES
 @app.route("/packages")
 def packages():
     return render_template("packages.html", packages=all_packages)
 
-# PACKAGE DETAIL
+# PACKAGE DETAILS
 @app.route("/package/<slug>")
 def package_detail(slug):
     package = next((p for p in all_packages if p["slug"] == slug), None)
@@ -74,96 +65,17 @@ def package_detail(slug):
         return render_template("package_detail.html", package=package)
     return "Package not found"
 
-# 🔥 REGISTER PAGE (FIXED)
-@app.route("/register")
-def register():
-    return redirect("/send-otp")
-
-# SEND OTP
-@app.route("/send-otp", methods=["GET","POST"])
-def send_otp():
-    if request.method == "POST":
-        email = request.form["email"]
-        otp = str(random.randint(100000,999999))
-        otp_store[email] = otp
-
-        msg = Message("MSM Tours OTP",
-                      sender=app.config['MAIL_USERNAME'],
-                      recipients=[email])
-        msg.body = f"Your OTP is {otp}"
-        mail.send(msg)
-
-        return render_template("verify_otp.html", email=email)
-
-    return render_template("send_otp.html")
-
-# VERIFY OTP
-@app.route("/verify-otp", methods=["POST"])
-def verify_otp():
-    email = request.form["email"]
-    user_otp = request.form["otp"]
-
-    if otp_store.get(email) == user_otp:
-        session["verified_email"] = email
-        return redirect("/set-password")
-    return "Invalid OTP"
-
-# SET PASSWORD
-@app.route("/set-password", methods=["GET","POST"])
-def set_password():
+# BOOKING
+@app.route("/booking/<package>", methods=["GET","POST"])
+def booking(package):
     if request.method == "POST":
         name = request.form["name"]
-        password = generate_password_hash(request.form["password"])
-        email = session.get("verified_email")
+        email = request.form["email"]
+        phone = request.form["phone"]
+        date = request.form["date"]
+        message = request.form["message"]
 
-        conn = get_db()
-        conn.execute("INSERT INTO users(name,email,password) VALUES (?,?,?)",
-                     (name,email,password))
-        conn.commit()
-        conn.close()
-
-        return redirect("/login")
-
-    return render_template("set_password.html")
-
-# LOGIN
-@app.route("/login", methods=["GET","POST"])
-def login():
-    if request.method == "POST":
-        conn = get_db()
-        user = conn.execute("SELECT * FROM users WHERE email=?",
-                            (request.form["email"],)).fetchone()
-        conn.close()
-
-        if user and check_password_hash(user["password"], request.form["password"]):
-            session["user"] = user["name"]
-            return redirect("/")
-        else:
-            return render_template("login.html", error="Invalid login")
-
-    return render_template("login.html")
-
-# LOGOUT (ADD THIS)
-@app.route("/logout")
-def logout():
-    session.pop("user", None)
-    return redirect("/")
-
-# BOOKING
-@app.route("/booking", methods=["GET","POST"])
-def booking():
-    if "user" not in session:
-        return redirect("/login")
-
-    if request.method == "POST":
-        name = request.form.get("name")
-        email = request.form.get("email")
-        phone = request.form.get("phone")
-        package = request.form.get("package")
-        date = request.form.get("date")
-        message = request.form.get("message")
-
-        # SAVE TO DATABASE
+        # SAVE
         conn = get_db()
         conn.execute("""
         INSERT INTO bookings(name,email,phone,package,date,message)
@@ -173,15 +85,14 @@ def booking():
         conn.close()
 
         # SEND EMAIL TO ADMIN
-        try:
-            msg = Message(
-                "New Booking Received",
-                sender=app.config['MAIL_USERNAME'],
-                recipients=[app.config['MAIL_USERNAME']]
-            )
+        msg = Message(
+            "New Booking - MSM Tours",
+            sender=app.config['MAIL_USERNAME'],
+            recipients=[app.config['MAIL_USERNAME']]
+        )
 
-            msg.body = f"""
-New Booking!
+        msg.body = f"""
+New Booking Received!
 
 Name: {name}
 Email: {email}
@@ -190,68 +101,32 @@ Package: {package}
 Date: {date}
 Message: {message}
 """
-            mail.send(msg)
 
-        except Exception as e:
-            print("Email Error:", e)
+        mail.send(msg)
 
-        # SUCCESS MESSAGE
-        return render_template("success.html",
-                               name=name,
-                               package=package)
+        return render_template("success.html", name=name, package=package)
 
-    return render_template("booking.html", packages=all_packages)
+    return render_template("booking.html", package=package)
 
 # ADMIN LOGIN
 @app.route("/admin-login", methods=["GET","POST"])
 def admin_login():
     if request.method == "POST":
         if request.form["username"] == "admin" and request.form["password"] == "admin123":
-            session["admin"] = True
             return redirect("/dashboard")
         else:
-            return render_template("admin_login.html", error="Invalid")
+            return "Invalid"
 
     return render_template("admin_login.html")
 
 # DASHBOARD
 @app.route("/dashboard")
 def dashboard():
-    if not session.get("admin"):
-        return redirect("/admin-login")
-
     conn = get_db()
-    users = conn.execute("SELECT * FROM users").fetchall()
     bookings = conn.execute("SELECT * FROM bookings").fetchall()
     conn.close()
 
-    return render_template("admin.html", users=users, bookings=bookings)
-    # DELETE USER
-@app.route("/delete-user/<int:id>")
-def delete_user(id):
-    if not session.get("admin"):
-        return redirect("/admin-login")
-
-    conn = get_db()
-    conn.execute("DELETE FROM users WHERE id=?", (id,))
-    conn.commit()
-    conn.close()
-
-    return redirect("/dashboard")
-
-
-# DELETE BOOKING
-@app.route("/delete-booking/<int:id>")
-def delete_booking(id):
-    if not session.get("admin"):
-        return redirect("/admin-login")
-
-    conn = get_db()
-    conn.execute("DELETE FROM bookings WHERE id=?", (id,))
-    conn.commit()
-    conn.close()
-
-    return redirect("/dashboard")
+    return render_template("admin.html", bookings=bookings)
 
 # RUN
 if __name__ == "__main__":

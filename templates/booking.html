@@ -1,37 +1,28 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 <title>Booking</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/static/style.css">
 </head>
 
-<body class="bg-booking">
+<body>
 
 <nav class="navbar">
 <h2>MSM Tours</h2>
 </nav>
 
-<form method="POST" class="form glass">
+<form method="POST" class="form">
 
-<h2>Book Your Trip</h2>
+<h2>Book {{package}}</h2>
 
 <input type="text" name="name" placeholder="Your Name" required>
-
 <input type="email" name="email" placeholder="Your Email" required>
-
 <input type="text" name="phone" placeholder="Phone Number" required>
-
-<select name="package" required>
-{% for p in packages %}
-<option value="{{p.name}}">{{p.name}}</option>
-{% endfor %}
-</select>
 
 <input type="date" name="date" required>
 
-<textarea name="message" placeholder="Any message"></textarea>
+<textarea name="message" placeholder="Your message"></textarea>
 
 <button type="submit">Confirm Booking</button>
 

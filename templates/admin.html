@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Admin Dashboard</title>
+<title>Booking</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/static/style.css">
 </head>
@@ -9,54 +9,24 @@
 <body>
 
 <nav class="navbar">
-<h2>MSM Tours - Admin</h2>
-<div>
-<a href="/">Home</a>
-<a href="/logout">Logout</a>
-</div>
+<h2>MSM Tours</h2>
 </nav>
 
-<h1 class="section-title">Admin Dashboard</h1>
+<form method="POST" class="form">
 
-<!-- USERS -->
-<h2 class="section-title">Users</h2>
-<div class="dashboard-box">
+<h2>Book {{package}}</h2>
 
-{% for u in users %}
-<div style="margin-bottom:15px;">
-<b>{{u.name}}</b><br>
-Email: {{u.email}}<br>
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Your Email" required>
+<input type="text" name="phone" placeholder="Phone Number" required>
 
-<a href="/delete-user/{{u.id}}">
-<button style="background:red;">Delete User</button>
-</a>
-</div>
-<hr>
-{% endfor %}
+<input type="date" name="date" required>
 
-</div>
+<textarea name="message" placeholder="Your message"></textarea>
 
-<!-- BOOKINGS -->
-<h2 class="section-title">Bookings</h2>
-<div class="dashboard-box">
+<button type="submit">Confirm Booking</button>
 
-{% for b in bookings %}
-<div style="margin-bottom:15px;">
-<b>{{b.name}}</b><br>
-Email: {{b.email}}<br>
-Phone: {{b.phone}}<br>
-Package: {{b.package}}<br>
-Date: {{b.date}}<br>
-Message: {{b.message}}<br>
-
-<a href="/delete-booking/{{b.id}}">
-<button style="background:red;">Delete Booking</button>
-</a>
-</div>
-<hr>
-{% endfor %}
-
-</div>
+</form>
 
 </body>
 </html>
