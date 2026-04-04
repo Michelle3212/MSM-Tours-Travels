@@ -11,7 +11,7 @@ app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = 'msmtoursandtravels2026@gmail.com'
-app.config['MAIL_PASSWORD'] = 'wotldzkyjzkysvvw'
+app.config['MAIL_PASSWORD'] = 'ipdildueutmwfuyi'
 
 mail = Mail(app)
 
@@ -26,9 +26,9 @@ def send_email_async(app, msg):
     with app.app_context():
         try:
             mail.send(msg)
-            print("✅ Email sent")
+            print("✅ Email sent successfully")
         except Exception as e:
-            print("❌ Email failed:", e)
+            print("❌ Email error:", e)
 
 # PACKAGES
 all_packages = [
@@ -96,29 +96,18 @@ def booking(package):
             conn.commit()
             conn.close()
 
-            # EMAIL TO ADMIN
-            msg = Message(
-                "New Booking - MSM Tours",
-                sender=app.config['MAIL_USERNAME'],
-                recipients=[
-                    "msmtoursandtravels2026@gmail.com",
-                    "michellemagdalene885@gmail.com"
-                ]
-            )
+            # ================= GOOGLE SHEET =================
+            data = {
+                "Name": name,
+                "Email": email,
+                "Phone": phone,
+                "Package": package,
+                "Date": date,
+                "Message": message
+            }
 
-            msg.body = f"""
-New Booking Received!
-
-Name: {name}
-Email: {email}
-Phone: {phone}
-Package: {package}
-Date: {date}
-Message: {message}
-"""
-
-            # 🚀 SEND EMAIL WITHOUT FREEZING PAGE
-            threading.Thread(target=send_email_async, args=(app, msg)).start()
+            # 🔥 PASTE YOUR SHEET URL BELOW
+            requests.post("https://api.sheetbest.com/sheets/8587ab41-3cad-44c2-a2f7-05ed8a71b466", json=data)
 
             # SUCCESS PAGE
             return render_template("success.html", name=name, package=package)
