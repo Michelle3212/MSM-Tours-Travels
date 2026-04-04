@@ -8,36 +8,20 @@
 </head>
 
 <body>
+
+<!-- TOP CONTACT BAR -->
 <div style="background:#0b5394;color:white;text-align:center;padding:8px;">
 📞 6366017711, 8971628988 |
 📧 msmtoursandtravels2026@gmail.com |
 📍 1st main road, anughraha layout, bengaluru 560076
 </div>
+
 <!-- NAVBAR -->
 <nav class="navbar">
 <h2>MSM Tours</h2>
 <div>
 <a href="/">Home</a>
 <a href="/packages">Packages</a>
-<a href="/booking">Book</a>
-<a href="/contact">Contact</a>
-
-{% if session.get("user") %}
-<span>Welcome {{session["user"]}}</span>
-<a href="/logout">Logout</a>
-{% else %}
-<a href="/login">Login</a>
-<a href="/register">Register</a>
-{% endif %}
-
-<!-- ALWAYS SHOW ADMIN LOGIN -->
-<a href="/admin-login">Admin</a>
-
-<!-- SHOW DASHBOARD ONLY AFTER LOGIN -->
-{% if session.get("admin") %}
-<a href="/dashboard">Dashboard</a>
-{% endif %}
-
 </div>
 </nav>
 
@@ -45,7 +29,6 @@
 <div class="slider">
   <div class="slides">
 
-    <!-- IMAGES -->
     <img src="/static/images/cruise.jpg">
     <img src="/static/images/maldives.jpg">
     <img src="/static/images/wild.jpg">
@@ -65,7 +48,7 @@
     <img src="/static/images/rajasthan.jpg">
     <img src="/static/images/vac.jpg">
 
-    <!-- DUPLICATE FOR LOOP -->
+    <!-- DUPLICATE -->
     <img src="/static/images/cruise.jpg">
     <img src="/static/images/maldives.jpg">
     <img src="/static/images/wild.jpg">
@@ -97,24 +80,25 @@
 <img src="/static/images/boathouse.jpg">
 <h3>Kerala Boathouse</h3>
 <p>₹25000</p>
-<a href="/package/{{ 'kerala-boathouse' }}"><button>View Details</button></a>
+<a href="/package/kerala-boathouse"><button>View Details</button></a>
 </div>
 
 <div class="card">
 <img src="/static/images/dubai.jpg">
 <h3>Dubai</h3>
 <p>₹60000</p>
-<a href="/package/{{ 'dubai' }}"><button>View Details</button></a>
+<a href="/package/dubai"><button>View Details</button></a>
 </div>
 
 <div class="card">
 <img src="/static/images/maldives.jpg">
 <h3>Maldives</h3>
 <p>₹90000</p>
-<a href="/package/{{ 'maldives' }}"><button>View Details</button></a>
+<a href="/package/maldives"><button>View Details</button></a>
 </div>
 
 </div>
+
 <!-- ABOUT -->
 <section class="about">
 <h2>About MSM Tours & Travels</h2>
@@ -177,24 +161,6 @@ packages, comfort, and safety. We ensure every journey becomes a memory.
 <img src="/static/images/ooty.jpg">
 <img src="/static/images/kerala.jpg">
 <img src="/static/images/singapore.jpg">
-</div>
-
-<!-- REVIEW -->
-<div class="review-box">
-<form method="POST" action="/review">
-<textarea name="review" placeholder="Write your review"></textarea>
-<button type="submit">Submit</button>
-</form>
-</div>
-
-<h2 class="section-title">Customer Reviews</h2>
-<div class="reviews">
-{% for r in reviews %}
-<div class="card">
-<h3>{{r.name}}</h3>
-<p>{{r.review}}</p>
-</div>
-{% endfor %}
 </div>
 
 <!-- FOOTER -->

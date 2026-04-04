@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request
 import sqlite3
 import os
 from flask_mail import Mail, Message
+import threading
 
 app = Flask(__name__)
 
@@ -19,6 +20,11 @@ def get_db():
     conn = sqlite3.connect("database.db")
     conn.row_factory = sqlite3.Row
     return conn
+
+# EMAIL BACKGROUND (NO LAG)
+def send_email_async(app, msg):
+    with app.app_context():
+        mail.send(msg)
 
 # PACKAGES
 all_packages = [
@@ -84,11 +90,14 @@ def booking(package):
         conn.commit()
         conn.close()
 
-        # SEND EMAIL TO ADMIN
+        # EMAIL TO BOTH ADMINS
         msg = Message(
             "New Booking - MSM Tours",
             sender=app.config['MAIL_USERNAME'],
-            recipients=[app.config['MAIL_USERNAME']]
+            recipients=[
+                "msmtoursandtravels2026@gmail.com",
+                "michellemagdalene885@gmail.com"
+            ]
         )
 
         msg.body = f"""
@@ -102,31 +111,11 @@ Date: {date}
 Message: {message}
 """
 
-        mail.send(msg)
+        threading.Thread(target=send_email_async, args=(app, msg)).start()
 
         return render_template("success.html", name=name, package=package)
 
     return render_template("booking.html", package=package)
-
-# ADMIN LOGIN
-@app.route("/admin-login", methods=["GET","POST"])
-def admin_login():
-    if request.method == "POST":
-        if request.form["username"] == "admin" and request.form["password"] == "admin123":
-            return redirect("/dashboard")
-        else:
-            return "Invalid"
-
-    return render_template("admin_login.html")
-
-# DASHBOARD
-@app.route("/dashboard")
-def dashboard():
-    conn = get_db()
-    bookings = conn.execute("SELECT * FROM bookings").fetchall()
-    conn.close()
-
-    return render_template("admin.html", bookings=bookings)
 
 # RUN
 if __name__ == "__main__":
