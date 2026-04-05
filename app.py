@@ -340,14 +340,13 @@ def booking(package):
                 "message": message
             }
 
-            try:
-                requests.post(
-                    "https://api.sheetbest.com/sheets/8587ab41-3cad-44c2-a2f7-05ed8a71b466",
-                    json=data
-                )
-                print("✅ Sent to Google Sheets")
-            except Exception as e:
-                print("❌ Sheets error:", e)
+            response = requests.post(
+                "https://api.sheetbest.com/sheets/8587ab41-3cad-44c2-a2f7-05ed8a71b466",
+                json=data
+            )
+
+            print("STATUS:", response.status_code)
+            print("RESPONSE:", response.text)
 
             # ================= EMAIL (OPTIONAL) =================
             try:

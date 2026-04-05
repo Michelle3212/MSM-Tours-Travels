@@ -30,7 +30,7 @@ position:relative;
 .slides{
 display:flex;
 width:200%;  /* because images duplicated */
-animation:scroll 30s linear infinite;
+animation:scroll 20s linear infinite;
 }
 
 .slides img{
