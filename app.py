@@ -316,6 +316,7 @@ def booking(package):
             name = request.form["name"]
             email = request.form["email"]
             phone = request.form["phone"]
+            package = request.form["package"]
             start_date = request.form["start_date"]
             return_date = request.form["return_date"]
             message = request.form["message"]
