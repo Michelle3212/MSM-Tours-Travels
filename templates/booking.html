@@ -16,26 +16,19 @@
 
 <h2>Book {{package}}</h2>
 
-<!-- NAME -->
 <input type="text" name="name" placeholder="Your Name" required>
-
-<!-- EMAIL -->
 <input type="email" name="email" placeholder="Your Email" required>
+<input type="text" name="phone" placeholder="Phone Number" required>
 
-<!-- PHONE -->
-<input type="tel" name="phone" placeholder="Phone Number" required pattern="[0-9]{10}">
 
-<!-- DATE -->
-<label>Select Travel Date</label>
-<input type="date" name="date" required>
+<label>Start Date</label>
+<input type="date" name="start_date" required>
 
-<!-- MESSAGE -->
-<textarea name="message" placeholder="Any special request or message"></textarea>
+<label>Return Date</label>
+<input type="date" name="return_date" required>
 
-<!-- HIDDEN PACKAGE VALUE (IMPORTANT FIX) -->
-<input type="hidden" name="package" value="{{package}}">
+<textarea name="message" placeholder="Any special request"></textarea>
 
-<!-- BUTTON -->
 <button type="submit">Confirm Booking</button>
 
 </form>
