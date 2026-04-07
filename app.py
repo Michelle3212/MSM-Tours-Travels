@@ -7,29 +7,11 @@ import threading
 
 app = Flask(__name__)
 
-# EMAIL CONFIG
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'msmtoursandtravels2026@gmail.com'
-app.config['MAIL_PASSWORD'] = 'ipdildueutmwfuyi'
-
-mail = Mail(app)
-
 # DATABASE
 def get_db():
     conn = sqlite3.connect("database.db")
     conn.row_factory = sqlite3.Row
     return conn
-
-# EMAIL BACKGROUND (NO LAG)
-def send_email_async(app, msg):
-    with app.app_context():
-        try:
-            mail.send(msg)
-            print("✅ Email sent successfully")
-        except Exception as e:
-            print("❌ Email error:", e)
 
 # ================== YOUR PACKAGES (UNCHANGED) ==================
 all_packages = [
@@ -320,13 +302,14 @@ def booking(package):
             start_date = request.form["start_date"]
             return_date = request.form["return_date"]
             message = request.form["message"]
+            service = request.form["service"]
 
             # SAVE TO DATABASE
             conn = get_db()
             conn.execute("""
             INSERT INTO bookings(name,email,phone,package,start_date,return_date,message)
             VALUES (?,?,?,?,?,?,?)
-            """,(name,email,phone,package,start_date,return_date,message))
+            """,(name,email,phone,package,start_date,return_date,message,service))
             conn.commit()
             conn.close()
 
@@ -338,7 +321,8 @@ def booking(package):
                 "package": package,
                 "start_date": start_date,
                 "return_date": return_date,
-                "message": message
+                "message": message,
+                "service": service
             }
 
             response = requests.post(
@@ -370,6 +354,7 @@ Package: {package}
 Start Date: {start_date}
 Return Date: {return_date}
 Message: {message}
+service: {service}
 """
 
                 threading.Thread(target=send_email_async, args=(app, msg)).start()
@@ -394,15 +379,17 @@ def service():
             name = request.form["name"]
             email = request.form["email"]
             phone = request.form["phone"]
-            service_type = request.form["service"]
+            start_date = request.form["start_date"]
+            return_date = request.form["return_date"]
             message = request.form["message"]
+            service = request.form["service"]
 
             # SAVE TO DATABASE (optional reuse bookings table)
             conn = get_db()
             conn.execute("""
             INSERT INTO bookings(name,email,phone,package,date,message)
             VALUES (?,?,?,?,?,?)
-            """,(name,email,phone,service_type,"SERVICE",message))
+            """,(name,email,phone,start_date,return_date,message,service))
             conn.commit()
             conn.close()
 
@@ -411,10 +398,11 @@ def service():
                 "name": name,
                 "email": email,
                 "phone": phone,
-                "package": service_type,   # reuse same column
-                "start_date": "SERVICE",
-                "return_date": "SERVICE",
-                "message": message
+                "package": service,   # reuse same column
+                "start_date": start_date,
+                "return_date": return_date,
+                "message": message,
+                "service": service
             }
 
             requests.post("https://api.sheetbest.com/sheets/8587ab41-3cad-44c2-a2f7-05ed8a71b466", json=data)
