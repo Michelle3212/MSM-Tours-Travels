@@ -385,6 +385,46 @@ Message: {message}
     return render_template("booking.html", package=package)
 
 # =======================================================
+# SERVICE REQUEST (same as booking)
+@app.route("/service", methods=["GET","POST"])
+def service():
+
+    if request.method == "POST":
+        try:
+            name = request.form["name"]
+            email = request.form["email"]
+            phone = request.form["phone"]
+            service_type = request.form["service"]
+            message = request.form["message"]
+
+            # SAVE TO DATABASE (optional reuse bookings table)
+            conn = get_db()
+            conn.execute("""
+            INSERT INTO bookings(name,email,phone,package,date,message)
+            VALUES (?,?,?,?,?,?)
+            """,(name,email,phone,service_type,"SERVICE",message))
+            conn.commit()
+            conn.close()
+
+            # GOOGLE SHEETS
+            data = {
+                "name": name,
+                "email": email,
+                "phone": phone,
+                "package": service_type,   # reuse same column
+                "start_date": "SERVICE",
+                "return_date": "SERVICE",
+                "message": message
+            }
+
+            requests.post(""https://api.sheetbest.com/sheets/8587ab41-3cad-44c2-a2f7-05ed8a71b466", json=data)
+
+            return render_template("success.html", name=name, package=service_type)
+
+        except Exception as e:
+            return f"Error: {e}"
+
+    return render_template("service.html")
 
 # RUN
 if __name__ == "__main__":

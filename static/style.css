@@ -30,7 +30,7 @@ position:relative;
 .slides{
 display:flex;
 width:200%;  /* because images duplicated */
-animation:scroll 20s linear infinite;
+animation:scroll 15s linear infinite;
 }
 
 .slides img{
@@ -222,4 +222,38 @@ padding:20px;
 background:#0b5394;
 color:white;
 margin-top:30px;
+}
+.services {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: 600px;
+  margin: 10px auto;
+}
+
+.service-item {
+  background: #f9f9f9;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.3s;
+}
+
+.service-item:hover {
+  background: #e6f0ff;
+  transform: translateY(-3px);
+}
+
+.services-note {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 500;
+}
+@media (max-width: 600px) {
+  .services {
+    grid-template-columns: 1fr;
+  }
 }

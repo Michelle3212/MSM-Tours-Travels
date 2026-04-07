@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Request Service</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+<h2>MSM Tours</h2>
+</nav>
+
+<form method="POST" class="form">
+
+<h2>Request a Service</h2>
+
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Your Email" required>
+<input type="text" name="phone" placeholder="Phone Number" required>
+
+<select name="service" required>
+  <option value="">Select Service</option>
+  <option>Visa Assistance</option>
+  <option>Passport Services</option>
+  <option>Foreign Exchange</option>
+  <option>Flight Booking</option>
+  <option>Hotel Booking</option>
+  <option>Transport Services</option>
+</select>
+
+<textarea name="message" placeholder="Your requirement"></textarea>
+
+<button type="submit">Submit Request</button>
+
+</form>
+
+</body>
+</html>
