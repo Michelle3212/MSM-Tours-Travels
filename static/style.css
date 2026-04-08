@@ -5,19 +5,40 @@ background:#f4f4f4;
 }
 
 /* NAVBAR */
-.navbar{
-display:flex;
-justify-content:space-between;
-background:#0b5394;
-color:white;
-padding:15px;
+/* NAVBAR CENTERED */
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #0b5394;
+  color: white;
+  padding: 15px;
 }
 
-.navbar a{
-color:white;
-margin:10px;
-text-decoration:none;
+/* TITLE */
+.logo {
+  margin: 0;
+  letter-spacing: 1px;
+  font-size: 28px;
+  text-align: center;
 }
+
+/* NAV LINKS */
+.nav-links {
+  margin-top: 10px;
+}
+.nav-links a:hover {
+  text-decoration: underline;
+}
+.nav-links a {
+  color: white;
+  margin: 0 15px;
+  padding: 5px 10px;   /* 👈 ADD THIS LINE */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
 
 /* SLIDER */
 .slider{
