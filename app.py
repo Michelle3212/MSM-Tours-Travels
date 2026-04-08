@@ -8,6 +8,16 @@ import threading
 
 app = Flask(__name__)
 
+# ================= GOOGLE SHEETS FUNCTION =================
+SHEET_URL = "https://api.sheetbest.com/sheets/8587ab41-3cad-44c2-a2f7-05ed8a71b466"
+
+def send_to_sheets(data):
+    try:
+        response = requests.post(SHEET_URL, json=data)
+        print("SHEET STATUS:", response.status_code)
+        print("SHEET RESPONSE:", response.text)
+    except Exception as e:
+        print("Sheet Error:", e)
 
 # ================= DATABASE =================
 def get_db():
@@ -299,6 +309,7 @@ def package_detail(slug):
     return "Package not found", 404
 
 # ================= BOOKING =================
+# ================= BOOKING =================
 @app.route("/booking/<package>", methods=["GET","POST"])
 def booking(package):
 
@@ -312,6 +323,7 @@ def booking(package):
             return_date = request.form["return_date"]
             message = request.form["message"]
 
+            # SAVE TO DATABASE
             conn = get_db()
             conn.execute("""
             INSERT INTO bookings(name,email,phone,package,start_date,return_date,message,service)
@@ -332,22 +344,34 @@ def booking(package):
                 "service": "package_booking"
             }
 
-            try:
-                requests.post("https://api.sheetbest.com/sheets/8587ab41-3cad-44c2-a2f7-05ed8a71b466", json=data)
-            except:
-                print("Sheet failed")
+            response = requests.post(
+                "https://api.sheetbest.com/sheets/8587ab41-3cad-44c2-a2f7-05ed8a71b466",
+                json=data
+            )
+
+            print("BOOKING STATUS:", response.status_code)
+            print("BOOKING RESPONSE:", response.text)
 
             # EMAIL
             try:
-                msg = Message("New Booking",
+                msg = Message(
+                    "New Booking",
                     sender=app.config['MAIL_USERNAME'],
-                    recipients=["msmtoursandtravels2026@gmail.com"])
+                    recipients=["msmtoursandtravels2026@gmail.com"]
+                )
 
-                msg.body = f"""New Booking\n{name}\n{phone}\n{package}"""
+                msg.body = f"""
+New Booking
+
+Name: {name}
+Phone: {phone}
+Package: {package}
+"""
 
                 threading.Thread(target=send_email_async, args=(app, msg)).start()
-            except:
-                print("Email failed")
+
+            except Exception as e:
+                print("Email failed:", e)
 
             return render_template("success.html", name=name, package=package)
 
@@ -356,6 +380,7 @@ def booking(package):
 
     return render_template("booking.html", package=package)
 
+# ================= SERVICE =================
 # ================= SERVICE =================
 @app.route("/service", methods=["GET","POST"])
 def service():
@@ -368,17 +393,38 @@ def service():
             start_date = request.form["start_date"]
             return_date = request.form["return_date"]
             message = request.form["message"]
-            service = request.form["service"]
+            service_type = request.form["service"]
 
+            # SAVE TO DATABASE
             conn = get_db()
             conn.execute("""
             INSERT INTO bookings(name,email,phone,package,start_date,return_date,message,service)
             VALUES (?,?,?,?,?,?,?,?)
-            """,(name,email,phone,service,start_date,return_date,message,service))
+            """,(name,email,phone,service_type,start_date,return_date,message,service_type))
             conn.commit()
             conn.close()
 
-            return render_template("success.html", name=name, package=service)
+            # GOOGLE SHEETS (FIXED)
+            data = {
+                "name": name,
+                "email": email,
+                "phone": phone,
+                "package": service_type,
+                "start_date": start_date,
+                "return_date": return_date,
+                "message": message,
+                "service": service_type
+            }
+
+            response = requests.post(
+                "https://api.sheetbest.com/sheets/8587ab41-3cad-44c2-a2f7-05ed8a71b466",
+                json=data
+            )
+
+            print("SERVICE STATUS:", response.status_code)
+            print("SERVICE RESPONSE:", response.text)
+
+            return render_template("success.html", name=name, package=service_type)
 
         except Exception as e:
             return f"Error: {e}"
