@@ -1,3 +1,4 @@
+# ========================= app.py (FULL FIXED) =========================
 from flask import Flask, render_template, request
 import sqlite3
 import os
@@ -7,13 +8,14 @@ import threading
 
 app = Flask(__name__)
 
-# DATABASE
+
+# ================= DATABASE =================
 def get_db():
     conn = sqlite3.connect("database.db")
     conn.row_factory = sqlite3.Row
     return conn
 
-# ================== YOUR PACKAGES (UNCHANGED) ==================
+# ================= PACKAGES =================
 all_packages = [
 
     {
@@ -271,25 +273,30 @@ all_packages = [
 
 ]
 
-# HOME
+# ================= HOME =================
 @app.route("/")
 def home():
     return render_template("index.html")
 
-# PACKAGES
+# ================= PACKAGES =================
 @app.route("/packages")
 def packages():
-    return render_template("packages.html", packages=all_packages)
+    search = request.args.get("search")
+    if search:
+        filtered = [p for p in all_packages if search.lower() in p["name"].lower()]
+    else:
+        filtered = all_packages
+    return render_template("packages.html", packages=filtered)
 
-# PACKAGE DETAILS
+# ================= PACKAGE DETAIL =================
 @app.route("/package/<slug>")
 def package_detail(slug):
     package = next((p for p in all_packages if p["slug"] == slug), None)
     if package:
         return render_template("package_detail.html", package=package)
-    return "Package not found"
+    return "Package not found", 404
 
-# ================= BOOKING (FULLY FIXED) =================
+# ================= BOOKING =================
 @app.route("/booking/<package>", methods=["GET","POST"])
 def booking(package):
 
@@ -302,18 +309,16 @@ def booking(package):
             start_date = request.form["start_date"]
             return_date = request.form["return_date"]
             message = request.form["message"]
-            service = request.form["service"]
 
-            # SAVE TO DATABASE
             conn = get_db()
             conn.execute("""
-            INSERT INTO bookings(name,email,phone,package,start_date,return_date,message)
-            VALUES (?,?,?,?,?,?,?)
-            """,(name,email,phone,package,start_date,return_date,message,service))
+            INSERT INTO bookings(name,email,phone,package,start_date,return_date,message,service)
+            VALUES (?,?,?,?,?,?,?,?)
+            """,(name,email,phone,package,start_date,return_date,message,"package_booking"))
             conn.commit()
             conn.close()
 
-            # ================= GOOGLE SHEETS =================
+            # GOOGLE SHEETS
             data = {
                 "name": name,
                 "email": email,
@@ -322,45 +327,25 @@ def booking(package):
                 "start_date": start_date,
                 "return_date": return_date,
                 "message": message,
-                "service": service
+                "service": "package_booking"
             }
 
-            response = requests.post(
-                "https://api.sheetbest.com/sheets/8587ab41-3cad-44c2-a2f7-05ed8a71b466",
-                json=data
-            )
-
-            print("STATUS:", response.status_code)
-            print("RESPONSE:", response.text)
-
-            # ================= EMAIL (OPTIONAL) =================
             try:
-                msg = Message(
-                    "New Booking - MSM Tours",
+                requests.post("https://api.sheetbest.com/sheets/8587ab41-3cad-44c2-a2f7-05ed8a71b466", json=data)
+            except:
+                print("Sheet failed")
+
+            # EMAIL
+            try:
+                msg = Message("New Booking",
                     sender=app.config['MAIL_USERNAME'],
-                    recipients=[
-                        "msmtoursandtravels2026@gmail.com",
-                        "michellemagdalene885@gmail.com"
-                    ]
-                )
+                    recipients=["msmtoursandtravels2026@gmail.com"])
 
-                msg.body = f"""
-New Booking Received!
-
-Name: {name}
-Email: {email}
-Phone: {phone}
-Package: {package}
-Start Date: {start_date}
-Return Date: {return_date}
-Message: {message}
-service: {service}
-"""
+                msg.body = f"""New Booking\n{name}\n{phone}\n{package}"""
 
                 threading.Thread(target=send_email_async, args=(app, msg)).start()
-
-            except Exception as e:
-                print("❌ Email failed:", e)
+            except:
+                print("Email failed")
 
             return render_template("success.html", name=name, package=package)
 
@@ -369,8 +354,7 @@ service: {service}
 
     return render_template("booking.html", package=package)
 
-# =======================================================
-# SERVICE REQUEST (same as booking)
+# ================= SERVICE =================
 @app.route("/service", methods=["GET","POST"])
 def service():
 
@@ -384,37 +368,55 @@ def service():
             message = request.form["message"]
             service = request.form["service"]
 
-            # SAVE TO DATABASE (optional reuse bookings table)
             conn = get_db()
             conn.execute("""
-            INSERT INTO bookings(name,email,phone,package,date,message)
-            VALUES (?,?,?,?,?,?)
-            """,(name,email,phone,start_date,return_date,message,service))
+            INSERT INTO bookings(name,email,phone,package,start_date,return_date,message,service)
+            VALUES (?,?,?,?,?,?,?,?)
+            """,(name,email,phone,service,start_date,return_date,message,service))
             conn.commit()
             conn.close()
 
-            # GOOGLE SHEETS
-            data = {
-                "name": name,
-                "email": email,
-                "phone": phone,
-                "package": service,   # reuse same column
-                "start_date": start_date,
-                "return_date": return_date,
-                "message": message,
-                "service": service
-            }
-
-            requests.post("https://api.sheetbest.com/sheets/8587ab41-3cad-44c2-a2f7-05ed8a71b466", json=data)
-
-            return render_template("success.html", name=name, package=service_type)
+            return render_template("success.html", name=name, package=service)
 
         except Exception as e:
             return f"Error: {e}"
 
     return render_template("service.html")
 
-# RUN
+# ================= RUN =================
 if __name__ == "__main__":
     port = int(os.environ.get("PORT",10000))
     app.run(host="0.0.0.0", port=port)
+
+
+# ========================= init_db.py (UPDATED) =========================
+import sqlite3
+
+conn = sqlite3.connect("database.db")
+cursor = conn.cursor()
+
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS bookings(
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+name TEXT,
+email TEXT,
+phone TEXT,
+package TEXT,
+start_date TEXT,
+return_date TEXT,
+message TEXT,
+service TEXT
+)
+""")
+
+conn.commit()
+conn.close()
+
+print("Database ready!")
+
+
+# ========================= FIX HTML CHANGE =========================
+# In package_detail.html CHANGE THIS:
+# <a href="/booking/{{package.name}}">
+# TO:
+# <a href="/booking/{{package.slug}}">
