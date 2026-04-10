@@ -29,35 +29,35 @@ def get_db():
 all_packages = [
 
     {
-        "name":"Kerala Boathouse",
+        "name":"Kerala Alleppey Boathouse + Munnar",
         "slug":"kerala-boathouse",
-        "price":"25000",
+        "price":"24000",
         "image":"boathouse.jpg",
         "itinerary":["Day 1: Arrival at Kochi and local sightseeing","Day 2: Transfer to Munnar and explore tea gardens","Day 3: Travel to Alleppey and check into houseboat","Day 4: Backwater cruise and departure"],
         "inclusions":"Accommodation, Breakfast and Dinner, Houseboat Stay, Sightseeing, Transfers, Guide",
-        "exclusions":"Flights, Entry Tickets, Personal Expenses",
+        "exclusions":"Entry Tickets, Personal Expenses",
         "facilities":"AC Rooms, Private Houseboat, Pickup Drop, Tour Guide, Parking, Room Service"
     },
 
     {
-        "name":"Dubai",
+        "name":"Dubai- City + Desert Safari + Exotic Wildlife",
         "slug":"dubai",
-        "price":"60000",
+        "price":"-4N/5D-",
         "image":"dubai.jpg",
-        "itinerary":["Day 1: Arrival and Marina Dhow Cruise","Day 2: Dubai City Tour and Burj Khalifa","Day 3: Desert Safari with BBQ Dinner","Day 4: Shopping and leisure","Day 5: Departure"],
-        "inclusions":"Hotel Stay, Breakfast, Visa Assistance, Transfers, Desert Safari, Cruise Dinner",
-        "exclusions":"Flights, Lunch, Personal Expenses",
+        "itinerary":["Day 1: Arrival in Dubai → Hotel check-in → Rest & lunch → Evening Desert Safari (dune bashing, camel ride, Arabic coffee, dinner, cultural show) → Overnight stay in Dubai","Day 2: Breakfast → Burj Khalifa visit (observation deck) → Dubai Mall shopping → Evening Dhow Cruise with dinner & entertainment → Overnight stay in Dubai","Day 3:Breakfast → Transfer/flight to Abu Dhabi → Hotel check-in → Yas Waterworld (water rides & activities) → Warner Bros. World (rides, shows & attractions) → Overnight stay in Abu Dhabi","Day 4: Breakfast → Visit Louvre Abu Dhabi (museum & galleries) → Ferrari World (theme park & rides) → Overnight stay in Abu Dhabi","Day 5: Breakfast → Hotel check-out → Transfer to airport → Departure for home"],
+        "inclusions":"Home pickup/drop, 3*/4*/5*Hotel Stay,Indian food, flight ticket,guide, Transfers,Visa, Sightseeing, Insurance",
+        "exclusions":"Lunch, Personal Expenses",
         "facilities":"3 Star Hotel, AC Transport, Tour Guide, Free WiFi, Airport Transfer, Parking"
     },
 
     {
         "name":"Maldives",
         "slug":"maldives",
-        "price":"90000",
+        "price":"-4N/5D",
         "image":"maldives.jpg",
-        "itinerary":["Day 1: Arrival and resort transfer","Day 2: Leisure and beach activities","Day 3: Water sports and snorkeling","Day 4: Relaxation and departure"],
+        "itinerary":["Day 1: Arrival at Male Airport → Speedboat transfer to resort → Check-in → Leisure time on island → Candlelight dinner → Overnight stay ","Day 2: Breakfast → Male city tour (markets, monuments, shopping) → Beach time → Water sports (snorkelling, diving, scuba diving) → Overnight stay at resort","Day 3:Breakfast → Optional underwater walk / dolphin boat ride → Leisure activities → Dinner at resort → Overnight stay","Day 4: Breakfast → Island hopping tour / beach relaxation / pool time → Resort activities → Overnight stay","Day 5:Breakfast → Check-out → Speedboat to Male Airport → Departure"],
         "inclusions":"Resort Stay, All Meals, Airport Transfers, Water Activities, Sightseeing, Taxes",
-        "exclusions":"Flights, Spa Charges, Personal Expenses",
+        "exclusions":"Spa Charges, Personal Expenses",
         "facilities":"Water Villa, Private Beach, Swimming Pool, WiFi, Spa, Room Service"
     },
 
@@ -73,13 +73,13 @@ all_packages = [
     },
 
     {
-        "name":"Goa Beach",
+        "name":"Goa N&S",
         "slug":"goa_beach",
-        "price":"90000",
+        "price":"-3N/4D-",
         "image":"goa.jpg",
-        "itinerary":["Day 1: Arrival and North Goa beaches","Day 2: South Goa sightseeing","Day 3: Water sports and nightlife","Day 4: Departure"],
-        "inclusions":"Hotel Stay, Breakfast, Sightseeing, Transfers, Beach Activities, Guide",
-        "exclusions":"Flights, Water Sports Charges, Personal Expenses",
+        "itinerary":["Day 1: Arrival in Goa → Hotel check-in → Breakfast → Calangute, Baga, Candolim beaches → Lunch → Optional water sports → Dinner → Overnight stay in North Goa","Day 2: Breakfast → Fort Aguada + lighthouse → Lunch → Chapora Fort & Vagator Beach photography → Sunset at Anjuna → Dinner → Overnight stay in North Goa","Day 3: Breakfast → Drive to South Goa → Visit Basilica of Bom Jesus, Se Cathedral, Mangueshi Temple → Lunch → Colva Beach / Palolem Beach → Dinner → Overnight stay in South Goa / North Goa (as per package)","Day 4: Breakfast → Free time for shopping / spa / café hopping / pool time → Lunch → Departure from Goa"],
+        "inclusions":"Home pickup/drop, 3*/4*/5*Hotel Stay,Indian food, flight ticket,guide, Transfers,Visa, Sightseeing, Insurance",
+        "exclusions":"  Water Sports Charges, Personal Expenses",
         "facilities":"Beach Resort, Swimming Pool, AC Rooms, WiFi, Bar, Parking"
     },
 
@@ -106,35 +106,35 @@ all_packages = [
     },
 
     {
-        "name":"Italy",
+        "name":"Italy- Rome + Venice",
         "slug":"italy",
-        "price":"200000",
+        "price":"-5N/6D-",
         "image":"italy.jpg",
-        "itinerary":["Day 1: Arrival in Rome","Day 2: Vatican City and Colosseum","Day 3: Florence and Pisa","Day 4: Venice canals","Day 5: Departure"],
-        "inclusions":"Hotel Stay, Breakfast, Visa Assistance, Transfers, Sightseeing, Guide",
-        "exclusions":"Flights, Entry Tickets, Personal Expenses",
+        "itinerary":["Day 1: AArrival at Rome Airport → Transfer to Venice by high-speed train → Hotel check-in → Free time for local exploration → Overnight stay in Venice","Day 2:Breakfast → Boat tour to Murano Island, Burano Island & Torcello Island → Sightseeing (glassmaking, colorful houses, historic cathedral) → Return to hotel → Overnight stay in Venice","Day 3:Breakfast → Train to Florence → Check-in → Visit Pisa (Leaning Tower, Piazza dei Miracoli, Duomo, Baptistery) → Return to Florence → Overnight stay in Florence","Day 4: Breakfast → Florence sightseeing (Cathedral of Santa Maria del Fiore, Uffizi Gallery, Ponte Vecchio, Piazzale Michelangelo) → Travel to Rome → Evening city tour (Trevi Fountain, Piazza Venezia, Roman Forum, Colosseum exterior, etc.) → Overnight stay in Rome","Day 5: Breakfast → Vatican City visit (St. Peter’s Basilica, Vatican Museums, Sistine Chapel) → Free time for shopping / leisure → Overnight stay in Rome", "Day 6: Breakfast → Hotel check-out → Transfer to Rome Airport → Departure"],
+        "inclusions":"Home pickup/drop, 3*/4*/5*Hotel Stay,Indian food, flight ticket,guide, Transfers,Visa, Sightseeing, Insurance",
+        "exclusions":" Entry Tickets, Personal Expenses",
         "facilities":"Luxury Hotel, Metro Access, Tour Guide, WiFi, Airport Transfer, Parking"
     },
 
     {
-        "name":"Manali",
+        "name":"Shimla + Manali + Kullu",
         "slug":"manali",
-        "price":"30000",
+        "price":"-4N/5D",
         "image":"manali.jpg",
-        "itinerary":["Day 1: Arrival and local sightseeing","Day 2: Solang Valley activities","Day 3: Rohtang Pass visit","Day 4: Departure"],
+        "itinerary":["Day 1: Delhi → Shimla Mall Road Night Stay","Day 2: Kufri Adventure Park → Jakhoo Temple → Night Stay","Day 3: Shimla → Manali via Kullu Valley → River Rafting → Night Stay","Day 4: Solang Valley → Atal Tunnel → Sissu (if open) → Night Stay", "day 5: Manali Local Sightseeing → Hadimba Temple → Vashisht → Delhi Drop"],
         "inclusions":"Hotel Stay, Meals, Sightseeing, Transfers, Guide, Parking",
         "exclusions":"Permits, Adventure Activities, Personal Expenses",
         "facilities":"Hill Resort, Cab Service, Bonfire, Parking, Room Service, Guide"
     },
 
     {
-        "name":"Middle East Tour",
+        "name":"Egypt- CAIRO + ALEXANDRIA",
         "slug":"middle_east_tour",
-        "price":"300000",
+        "price":"-4N/5D",
         "image":"middleeast.jpg",
-        "itinerary":["Day 1: Dubai arrival","Day 2: Abu Dhabi city tour","Day 3: Doha visit","Day 4: Muscat sightseeing","Day 5: Departure"],
-        "inclusions":"Hotels, Breakfast, Visa, Transfers, Internal Flights, Guide",
-        "exclusions":"International Flights, Personal Expenses, Entry Tickets",
+        "itinerary":["Day 1: Arrival at Cairo Airport → Meet & assist → Hotel check-in → Evening Sound & Light Show → Overnight stay in Cairo","Day 2: Breakfast → Visit Pyramids of Giza (Cheops, Chephren, Mycerinus) → Sakkara Pyramid → Memphis City → Camel ride (optional) → Papyrus Institute & Old Bazaar → Overnight stay in Cairo","Day 3: Breakfast → Egyptian Museum → Citadel of Saladin → Mosque & old city areas → Church of Virgin Mary & St. Mark’s Cathedral → Local bazaar visit → Overnight stay in Cairo","Day 4:Breakfast → Drive to Alexandria → Pompey’s Pillar → Qaitbay Citadel → Alexandria Library → Return to Cairo → Overnight stay in Cairo","Day 5: Breakfast → Hotel check-out → Transfer to Cairo Airport → Departure"],
+        "inclusions":"Home pickup/drop, 3*/4*/5*Hotel Stay,Indian food, flight ticket,guide, Transfers,Visa, Sightseeing, Insurance",
+        "exclusions":"Personal Expenses, Entry Tickets",
         "facilities":"Luxury Hotels, AC Transport, WiFi, Guide, Airport Pickup, Parking"
     },
 
@@ -183,11 +183,11 @@ all_packages = [
     },
 
     {
-        "name":"Rajasthan",
+        "name":"Rajasthan - JODHPUR + JAISALMER",
         "slug":"rajasthan",
-        "price":"40000",
+        "price":"-4N/5D-",
         "image":"rajasthan.jpg",
-        "itinerary":["Day 1: Jaipur sightseeing","Day 2: Jodhpur forts","Day 3: Udaipur lakes","Day 4: Jaisalmer desert safari","Day 5: Departure"],
+        "itinerary":["Day 1: Arrive Jodhpur,Visit Mehrangarh Fort, Jaswant Thada, Umaid Bhawan Palace → Night Stay Jodhpur","Day 2: Drive to Jaisalmer (5 hrs),En route visit Kuldhara Village → Evening at Gadisar Lake → Night Stay Jaisalmer","Day 3:Jaisalmer Sightseeing,Golden Fort, Patwon Ki Haveli, Nathmal Haveli → Evening Camel Safari & Folk Show at Sam Sand Dunes → Night Stay Desert Camp","Day 4: Jaisalmer → Jodhpur,Shopping / Leisure → Night Stay Jodhpur","Day 5: Drop at Jodhpur Airport / Railway Station"],
         "inclusions":"Hotel Stay, Breakfast, Sightseeing, Transfers, Guide, Desert Safari",
         "exclusions":"Entry Tickets, Personal Expenses, Meals",
         "facilities":"Heritage Hotel, Desert Camp, Cab Service, Parking, Guide, Room Service"
@@ -196,11 +196,11 @@ all_packages = [
     {
         "name":"Singapore",
         "slug":"singapore",
-        "price":"100000",
+        "price":"-4N/5D-",
         "image":"singapore.jpg",
-        "itinerary":["Day 1: Arrival and Night Safari","Day 2: City tour and Sentosa Island","Day 3: Universal Studios","Day 4: Departure"],
-        "inclusions":"Hotel Stay, Breakfast, Entry Tickets, Transfers, Sightseeing, Guide",
-        "exclusions":"Flights, Personal Expenses, Lunch",
+        "itinerary":["Day 1: Arrival,hotel check-in,Merlion Park,Marina Bay Sands Skypark, Gardens by the Bay,supertree lightshow,Night stay","Day 2: Breakfast,Sentosa Island tour(Cable car,S.E.A aquarium/madam tussauds),Wings of the Time show,night stay","Day 3: Breakfast,Universal Studios or Zoo + Night Safari,evening leisure,night stay ","Day 4: breakfast,Singapore Flyer / Duck Tour,Chinatown,little India,Bugis street shopping,Clark Quay Night walk,night stay", "Day 5: breakfast,hotel checkout,airport drop,departure,drop home"],
+        "inclusions":"Home pickup/drop, 3*/4*/5*Hotel Stay,Indian food, flight ticket,guide, Transfers,Visa, Sightseeing, Insurance",
+        "exclusions":"Personal Expenses",
         "facilities":"City Hotel, Metro Pass, WiFi, Guide, Airport Transfer, Parking"
     },
 
@@ -238,24 +238,24 @@ all_packages = [
     },
 
     {
-        "name":"Vietnam",
+        "name":"Vietnam-DA NANG - HANOI -",
         "slug":"vietnam",
         "price":"90000",
         "image":"vietnam.jpg",
-        "itinerary":["Day 1: Hanoi arrival","Day 2: Halong Bay cruise","Day 3: Ho Chi Minh city","Day 4: Cu Chi tunnels","Day 5: Departure"],
-        "inclusions":"Hotel Stay, Breakfast, Cruise, Transfers, Sightseeing, Guide",
-        "exclusions":"Flights, Personal Expenses, Entry Tickets",
+        "itinerary":["Day 1: Bangalore Da Nang - Hotel check-in - local sightseeing Marble Mountain, Dragon Bridge, My Khe Beach or Hoi An Ancient Town, Ma May Ancient House, Hoan Kiem Lake & Ngoc Son Temple, Dong Xuan Market, night stay Da Nang","Day 2: Ba Na Hills & Golden Bridge Full Day Tour Sightseeing - cable car, Golden Bridge, French Village, Fantasy Park, Pagodas & Spiritual Area, & other sightseeing - Night Dep by flight, Da Nang - Hanoi, night stay","Day 3: Halong Bay Cruise, full day tour - Sung Sot Cave, Ti Top Island, Luon Cave, Thien Cung Cave, kayak - night stay, Hanoi","Day 4: Ninh Binh & caves Full Day Tour Ninh Binh caves include Trang An boat caves, Tam Coc three caves, and Mua Cave viewpoint with stunning limestone scenery, night stay Hanoi","Day 5: Hanoi Shopping, Dep Bangalore Morning Check out - shopping - Airport Drop"],
+        "inclusions":"Home pickup/drop, 3*/4*/5*Hotel Stay,Indian food, flight ticket,guide, Transfers,Visa, Sightseeing, Insurance",
+        "exclusions":"Personal Expenses, Entry Tickets",
         "facilities":"Hotel, Cruise Stay, WiFi, Guide, Airport Transfer, Parking"
     },
 
     {
-        "name":"Thailand",
+        "name":"Thailand-Pattaya",
         "slug":"thailand",
-        "price":"90000",
+        "price":"32000-2N/3D",
         "image":"vac.jpg",
-        "itinerary":["Day 1: Bangkok arrival","Day 2: Pattaya Coral Island","Day 3: Bangkok temples","Day 4: Departure"],
-        "inclusions":"Hotel Stay, Breakfast, Transfers, Sightseeing, Guide, Entry Tickets",
-        "exclusions":"Flights, Personal Expenses, Activities",
+        "itinerary":["Day 1: Bangkok arrival,transfer to Pattaya,hotel check-in, aLcazar show,night stay ","Day 2:breakfast,Coral Island speed boat tour With lunch, beach activities,evening free, night stay","Day 3: -Breakfast, hotel checkout, Bangkok airport drop, flight to Bangalore"],
+        "inclusions":"Home pickup/drop, 3*/4*/5*Hotel Stay,Indian food, flight ticket,guide, Transfers,Visa, Sightseeing, Insurance",
+        "exclusions":"Personal Expenses, Activities",
         "facilities":"Hotel, Cab Service, WiFi, Guide, Airport Transfer, Parking"
     },
 
