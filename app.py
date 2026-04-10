@@ -229,7 +229,7 @@ all_packages = [
     {
         "name":"World Tour",
         "slug":"world_tour",
-        "price":"600000",
+        "price":"1000000",
         "image":"tour world.jpg",
         "itinerary":["Day 1: Dubai","Day 2: Paris","Day 3: Switzerland","Day 4: USA","Day 5: Singapore","Day 6: Return"],
         "inclusions":"Flights, Hotel Stay, Visa, Transfers, Sightseeing, Guide",
