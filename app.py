@@ -31,7 +31,7 @@ all_packages = [
     {
         "name":"Kerala Alleppey Boathouse + Munnar",
         "slug":"kerala-boathouse",
-        "price":"24000",
+        "price":"24000-4D/3N-",
         "image":"boathouse.jpg",
         "itinerary":["Day 1: Arrival at Kochi and local sightseeing","Day 2: Transfer to Munnar and explore tea gardens","Day 3: Travel to Alleppey and check into houseboat","Day 4: Backwater cruise and departure"],
         "inclusions":"Accommodation, Breakfast and Dinner, Houseboat Stay, Sightseeing, Transfers, Guide",
@@ -44,7 +44,7 @@ all_packages = [
         "slug":"dubai",
         "price":"-4N/5D-",
         "image":"dubai.jpg",
-        "itinerary":["Day 1: Arrival in Dubai → Hotel check-in → Rest & lunch → Evening Desert Safari (dune bashing, camel ride, Arabic coffee, dinner, cultural show) → Overnight stay in Dubai","Day 2: Breakfast → Burj Khalifa visit (observation deck) → Dubai Mall shopping → Evening Dhow Cruise with dinner & entertainment → Overnight stay in Dubai","Day 3:Breakfast → Transfer/flight to Abu Dhabi → Hotel check-in → Yas Waterworld (water rides & activities) → Warner Bros. World (rides, shows & attractions) → Overnight stay in Abu Dhabi","Day 4: Breakfast → Visit Louvre Abu Dhabi (museum & galleries) → Ferrari World (theme park & rides) → Overnight stay in Abu Dhabi","Day 5: Breakfast → Hotel check-out → Transfer to airport → Departure for home"],
+        "itinerary":["Day 1: Arrival in Dubai → Hotel check-in → Rest & lunch → Evening Desert Safari (dune bashing, camel ride, Arabic coffee, dinner, cultural show) → Overnight stay in Dubai","Day 2: Breakfast → Burj Khalifa visit (observation deck) → Dubai Mall shopping → Evening Cruise with dinner & entertainment → Overnight stay in Dubai","Day 3:Breakfast → Transfer/flight to Abu Dhabi → Hotel check-in → Yas Waterworld (water rides & activities) → Warner Bros. World (rides, shows & attractions) → Overnight stay in Abu Dhabi","Day 4: Breakfast → Visit Louvre Abu Dhabi (museum & galleries) → Ferrari World (theme park & rides) → Overnight stay in Abu Dhabi","Day 5: Breakfast → Hotel check-out → Transfer to airport → Departure for home"],
         "inclusions":"Home pickup/drop, 3*/4*/5*Hotel Stay,Indian food, flight ticket,guide, Transfers,Visa, Sightseeing, Insurance",
         "exclusions":"Lunch, Personal Expenses",
         "facilities":"3 Star Hotel, AC Transport, Tour Guide, Free WiFi, Airport Transfer, Parking"
@@ -62,13 +62,13 @@ all_packages = [
     },
 
     {
-        "name":"Ooty",
+        "name":"Ooty - Wayanad from B'lore",
         "slug":"ooty",
-        "price":"19000",
+        "price":"₹12999 - 4D/3N",
         "image":"ooty.jpg",
-        "itinerary":["Day 1: Arrival and Ooty Lake visit","Day 2: Botanical Garden and Doddabetta Peak","Day 3: Coonoor excursion","Day 4: Departure"],
+        "itinerary":["Day 1: Pick up at 6 AM from Bangalore - Drive to Wayanad & Wayanad Sightseeing","Day 2: Start at 9 AM - Wayanad sightseeing","Day 3: Start at 9 AM - Wayanad to Ooty and Ooty sightseeing","Day 4: Start at 9 AM - Ooty sightseeing and drop to Bangalore"],
         "inclusions":"Hotel Stay, Breakfast, Sightseeing, Transfers, Guide, Parking",
-        "exclusions":"Transport to Ooty, Entry Fees, Personal Expenses",
+        "exclusions":"Entry Fees, Personal Expenses",
         "facilities":"Hill View Rooms, Cab Service, Hot Water, Parking, Room Service, Guide"
     },
 
@@ -86,9 +86,9 @@ all_packages = [
     {
         "name":"Hampi Karnataka",
         "slug":"hampi_karnataka",
-        "price":"9000",
+        "price":"₹5505-3D/2N-",
         "image":"hampi.jpg",
-        "itinerary":["Day 1: Arrival and temple visit","Day 2: Heritage monuments and stone chariot","Day 3: Local sightseeing and departure"],
+        "itinerary":["Day 1:Departure From Bangalore For Hampi","Day 2:  Reach Hampi and explore the historical city","Day 3: Sunset at the hill and lake visit, Departure"],
         "inclusions":"Hotel Stay, Breakfast, Sightseeing, Transfers, Guide, Parking",
         "exclusions":"Entry Tickets, Personal Expenses, Meals",
         "facilities":"Budget Hotel, Local Guide, Cab, Parking, Room Service, Hot Water"
@@ -97,11 +97,11 @@ all_packages = [
     {
         "name":"India Tour",
         "slug":"india_tour",
-        "price":"200000",
+        "price":"-15D/14N-",
         "image":"india tour.jpg",
-        "itinerary":["Day 1: Delhi arrival and sightseeing","Day 2: Agra Taj Mahal visit","Day 3: Jaipur forts and palaces","Day 4: Varanasi ghats","Day 5: Kerala backwaters","Day 6: Departure"],
+        "itinerary":["Day 1: Bangalore Delhi - Arrival - Local Sightseeing - Night Stay Delhi","Day 2:Delhi Sightseeing - India Gate, Qutub Minar, Lotus Temple - Night Stay Delhi","Day 3:Delhi Agra - Visit Taj Mahal, Agra Fort - Night Stay Agra","Day 4: Agra Jaipur via Fatehpur Sikri - Night Stay Jaipur","Day 5: Jaipur Sightseeing - Amber Fort, City Palace, Jantar Mantar, Hawa Mahal - Night Stay Jaipur","Day 6: Jaipur Mumbai - Arrival - Marine Drive, Gateway of India - Night Stay Mumbai","Day 7: Mumbai Sightseeing - Local Tour - Night Stay Mumbai","Day 8: Mumbai Goa - Arrival - Beach Leisure - Night Stay Goa","Day 9: Goa Sightseeing - North Goa / South Goa - Night Stay Goa","Day 10: Goa Bangalore Kochi - Arrival - Night Stay Kochi","Day 11: Kochi Munnar - Hill Station - Tea Gardens - Night Stay Munnar","Day 12: Munnar Alleppey - Houseboat Stay - Backwaters - Night Stay Alleppey","Day 13: Alleppey Madurai - Temple Visit - Night Stay Madurai","Day 14: Madurai Rameswaram - Temple Darshan - Night Stay Rameswaram","Day 15: Rameswaram Bangalore - Departure"],
         "inclusions":"Hotels, Breakfast, Domestic Flights, Transfers, Sightseeing, Guide",
-        "exclusions":"International Flights, Personal Expenses, Entry Tickets",
+        "exclusions":"Personal Expenses, Entry Tickets",
         "facilities":"Premium Hotels, AC Transport, Tour Guide, Flights Included, WiFi, Parking"
     },
 
@@ -139,11 +139,11 @@ all_packages = [
     },
 
     {
-        "name":"Mysore",
+        "name":"Mysore - Coorg",
         "slug":"mysore",
-        "price":"9000",
-        "image":"mysore.jpg",
-        "itinerary":["Day 1: Arrival and Mysore Palace","Day 2: Zoo and Chamundi Hills","Day 3: Brindavan Gardens and departure"],
+        "price":"-4D/3N-",
+        "image":"coorgmysore.jpg",
+        "itinerary":["Day 1: Mysore Nagarhole - Safari - RRPu Falls - Coorg Overnight Stay","Day 2:Coorg Thalakavery - Bagamandala - Glass Bridge - Mandalpati Peak Jeep Safari - Abbey Falls - Raja's Seat","Day 3: Coorg Dubare Elephant Camp - River Rafting - Chiklihole Dam - Kaveri Nisargadama - Golden Temple - Harangi Tree Park","Day 4: Coorg Mysore - Chamundeshwari Temple - Sand Museum - Wax Museum - Karanji Lake - Jaganmohan Palace - Mysore Palace"],
         "inclusions":"Hotel Stay, Breakfast, Sightseeing, Transfers, Guide, Parking",
         "exclusions":"Entry Tickets, Personal Expenses, Meals",
         "facilities":"City Hotel, Cab Service, Parking, Room Service, Guide, Hot Water"
@@ -152,33 +152,33 @@ all_packages = [
     {
         "name":"Niagara - USA",
         "slug":"niagara_usa",
-        "price":"300000",
+        "price":"7D/6N",
         "image":"niagara.jpg",
-        "itinerary":["Day 1: Arrival in New York","Day 2: Niagara Falls tour","Day 3: Washington DC sightseeing","Day 4: Departure"],
+        "itinerary":["Day 1:Arrival in New York | Day at Leisure","Day 2:Statue of Liberty Cruise | New York Sightseeing Tour | Visit to One World Observation","Day 3:Transfer to Washington D.C. | Enroute Sightseeing to Philadelphia","Day 4:Washington D.C. Sightseeing Tour | Visit to Air & Space Museum | Enjoy the Capital Wheel","Day 5:Transfer to Niagara Falls, NY | Enroute Visit Hershey’s Chocolate World | Leisure Time","Day 6:Niagara Falls, NY Sightseeing Tour","Day 7:Departure Day"],
         "inclusions":"Hotel Stay, Breakfast, Transfers, Visa Assistance, Sightseeing, Guide",
-        "exclusions":"Flights, Entry Tickets, Personal Expenses",
+        "exclusions":"Entry Tickets, Personal Expenses",
         "facilities":"Premium Hotel, Coach Travel, WiFi, Tour Guide, Airport Transfer, Parking"
     },
 
     {
         "name":"Odisha Wild",
         "slug":"odisha_wild",
-        "price":"20000",
+        "price":"3D/2N",
         "image":"odishawild.jpg",
-        "itinerary":["Day 1: Bhubaneswar temples","Day 2: Puri and Konark","Day 3: Chilika Lake and safari","Day 4: Departure"],
+        "itinerary":["Day 1:Arrival at Bhadrak/Bhubaneswar; Drive to Bhitarkanika","Day 2: Bhitarkanika Sightseeing","Day 3:Return to Bhadrak/Bhubaneswar; End of Tour,Departure"],
         "inclusions":"Hotel Stay, Breakfast, Safari, Transfers, Sightseeing, Guide",
         "exclusions":"Entry Fees, Personal Expenses, Meals",
         "facilities":"Resort Stay, Jeep Safari, Parking, Guide, Room Service, Hot Water"
     },
 
     {
-        "name":"Paris",
+        "name":"Europe at a Glance - Zurich 3N, Paris 3N, London 3N",
         "slug":"paris",
-        "price":"200000",
+        "price":"-10D/9N-",
         "image":"paris.jpg",
-        "itinerary":["Day 1: Arrival and Eiffel Tower","Day 2: Louvre Museum and city tour","Day 3: Disneyland visit","Day 4: Departure"],
+        "itinerary":["Day 1:Zurich Calling - The Swiss Chapter Begins","Day 2: World's First Rotating Cable Car Rotair Up Mt. Titlis Peak At 3,020m - Orientation Tour Of Lucerne","Day 3:Magical Alpine Excursion To The Top Of Europe - The Amazing Jungfraujoch And Scenic Interlaken (Extra Cost)","Day 4: From The Roar Of Rhine Falls To The Romance Of Paris","Day 5: Paris City Tour  Eiffel Tower 2nd Level & Seine River Cruise","Day 6: A Magical Day At Disneyland Paris","Day 7: Paris To London  Across The Channel With A Taste Of Elegance","Day 8: Iconic London  City Tour, Madame Tussauds & The London Eye","Day 9: Lords Cricket Ground & Bicester Village Shopping","Day 10: Adieu Europe  A Grand Journey Concludes"],
         "inclusions":"Hotel Stay, Breakfast, Visa Assistance, Transfers, Sightseeing, Guide",
-        "exclusions":"Flights, Entry Tickets, Personal Expenses",
+        "exclusions":"Entry Tickets, Personal Expenses",
         "facilities":"Central Hotel, Metro Access, WiFi, Guide, Airport Transfer, Parking"
     },
 
@@ -205,33 +205,33 @@ all_packages = [
     },
 
     {
-        "name":"Himalayas",
+        "name":"Kashmir - SRINAGAR + GULMARG + SONAMARG + PAHALGAM",
         "slug":"himalayas",
-        "price":"40000",
+        "price":"-5N/6D-",
         "image":"skii.jpg",
-        "itinerary":["Day 1: Shimla arrival","Day 2: Kufri snow activities","Day 3: Manali sightseeing","Day 4: Solang Valley","Day 5: Departure"],
+        "itinerary":["Day 1: Arrival at Srinagar - Shikara Ride - Overnight stay","Day 2: Srinagar Gulmarg - Gondola Ride - Snow activities","Day 3:Srinagar Sonamarg - Thajiwas Glacier - Return","Day 4: Srinagar Pahalgam - Lidder Valley - Aru / Betaab Valley","Day 5: Pahalgam Srinagar - Local Sightseeing","Day 6:Srinagar Departure"],
         "inclusions":"Hotel Stay, Meals, Sightseeing, Transfers, Guide, Parking",
         "exclusions":"Adventure Activities, Permits, Personal Expenses",
         "facilities":"Hill Resort, Camp Stay, Bonfire, Guide, Parking, Room Service"
     },
 
     {
-        "name":"Delhi",
+        "name":"DELHI + AGRA + JAIPUR",
         "slug":"delhi",
-        "price":"40000",
+        "price":"-4N/5D-",
         "image":"tajmahal.jpg",
-        "itinerary":["Day 1: Delhi sightseeing","Day 2: Agra Taj Mahal","Day 3: Jaipur visit","Day 4: Departure"],
+        "itinerary":["Day 1:Arrive Delhi Visit India Gate, Qutub Minar, Lotus Temple - Night Stay Delhi","Day 2: Delhi Agra - Visit Taj Mahal, Agra Fort - Night Stay Agra","Day 3:Agra Jaipur via Fatehpur Sikri - Night Stay Jaipur","Day 4: Jaipur Sightseeing - Amber Fort, City Palace, Jantar Mantar, Hawa Mahal - Night Stay Jaipur","Day 5: Drop at Jaipur Airport / Railway Station"],
         "inclusions":"Hotel Stay, Breakfast, Transfers, Sightseeing, Guide, Parking",
         "exclusions":"Entry Tickets, Personal Expenses, Meals",
         "facilities":"City Hotel, Cab Service, WiFi, Guide, Parking, Room Service"
     },
 
     {
-        "name":"World Tour",
+        "name":"Best Of China ",
         "slug":"world_tour",
-        "price":"1000000",
-        "image":"tour world.jpg",
-        "itinerary":["Day 1: Dubai","Day 2: Paris","Day 3: Switzerland","Day 4: USA","Day 5: Singapore","Day 6: Return"],
+        "price":"13D/12N",
+        "image":"china.jpg",
+        "itinerary":["Day 1: Arrive Beijing - Leisure","Day 2: Beijing - Summer Palace - Tiananmen Square - Forbidden City","Day 3: Beijing - Great Wall of China - Olympic Village - Temple of Heaven","Day 4: Beijing Chengdu - Panda Research Base - Face Changing Show","Day 5: Chengdu Leshan Chengdu - Leshan Giant Buddha - Boat Ride","Day 6: Chengdu Chongqing - Bullet Train - Liziba Station - Yangtze Cable Car - Hongya Cave","Day 7: Chongqing Zhangjiajie - Tianmen Mountain - Cable Car","Day 8: Zhangjiajie - Wulingyuan - Bailong Elevator - Glass Bridge","Day 9: Zhangjiajie Guilin - Arrival - Foot Massage","Day 10: Guilin - Li River Cruise - Elephant Hill - Reed Flute Cave","Day 11: Guilin Shanghai - Maglev Train - The Bund - Jin Mao Tower - Circus Show","Day 12: Shanghai - Silk Factory - Yu Yuan Garden - Leisure","Day 13: Shanghai Departure"],
         "inclusions":"Flights, Hotel Stay, Visa, Transfers, Sightseeing, Guide",
         "exclusions":"Personal Expenses, Entry Tickets, Meals",
         "facilities":"Luxury Hotels, Flights Included, WiFi, Guide, Airport Transfers, Lounge Access"
@@ -240,7 +240,7 @@ all_packages = [
     {
         "name":"Vietnam-DA NANG - HANOI -",
         "slug":"vietnam",
-        "price":"90000",
+        "price":"5D/4N",
         "image":"vietnam.jpg",
         "itinerary":["Day 1: Bangalore Da Nang - Hotel check-in - local sightseeing Marble Mountain, Dragon Bridge, My Khe Beach or Hoi An Ancient Town, Ma May Ancient House, Hoan Kiem Lake & Ngoc Son Temple, Dong Xuan Market, night stay Da Nang","Day 2: Ba Na Hills & Golden Bridge Full Day Tour Sightseeing - cable car, Golden Bridge, French Village, Fantasy Park, Pagodas & Spiritual Area, & other sightseeing - Night Dep by flight, Da Nang - Hanoi, night stay","Day 3: Halong Bay Cruise, full day tour - Sung Sot Cave, Ti Top Island, Luon Cave, Thien Cung Cave, kayak - night stay, Hanoi","Day 4: Ninh Binh & caves Full Day Tour Ninh Binh caves include Trang An boat caves, Tam Coc three caves, and Mua Cave viewpoint with stunning limestone scenery, night stay Hanoi","Day 5: Hanoi Shopping, Dep Bangalore Morning Check out - shopping - Airport Drop"],
         "inclusions":"Home pickup/drop, 3*/4*/5*Hotel Stay,Indian food, flight ticket,guide, Transfers,Visa, Sightseeing, Insurance",
@@ -260,22 +260,22 @@ all_packages = [
     },
 
     {
-        "name":"Bandipur - Mudumalai Wildlife",
+        "name":"Karnataka Wildlife",
         "slug":"bandipur_mudumalai_wildlife",
-        "price":"15000",
+        "price":"5D/4N",
         "image":"Wildlife.jpg",
-        "itinerary":["Day 1: Arrival and jungle stay","Day 2: Safari and bird watching","Day 3: Nature walk and departure"],
+        "itinerary":["Day 1:Bangalore Arrival - Bannerghatta National Park - Leisure","Day 2:Bangalore Mysore - Mysore Zoo - Karanji Lake - Brindavan Gardens","Day 3:Mysore Nagarhole - Jungle Safari - Overnight Stay","Day 4: Nagarhole Bandipur - Wildlife Safari - Overnight Stay","Day 5: Bandipur Bangalore - Departure"],
         "inclusions":"Resort Stay, Meals, Safari, Transfers, Guide, Sightseeing",
         "exclusions":"Entry Fees, Personal Expenses, Activities",
         "facilities":"Jungle Resort, Jeep Safari, Guide, Parking, Room Service, Campfire"
     },
 
     {
-        "name":"Nagarhole Tiger Reserve",
+        "name":"Chikmagalur",
         "slug":"nagarhole_tiger_reserve",
-        "price":"12000",
-        "image":"wild.jpg",
-        "itinerary":["Day 1: Arrival and forest stay","Day 2: Tiger safari and nature walk","Day 3: Departure"],
+        "price":"4190/-,2D/1N",
+        "image":"chik.jpg",
+        "itinerary":["Day 1:Chikmagalur Arrival - Mullayanagiri Peak - Hirekolale Lake - Bhadra Wildlife Sanctuary - Local Market","Day 2: Chikmagalur - Jhari Waterfalls - Belur Halebidu Temples - Coffee Plantation - Departure"],
         "inclusions":"Resort Stay, Meals, Safari, Guide, Transfers, Sightseeing",
         "exclusions":"Entry Fees, Personal Expenses, Activities",
         "facilities":"Forest Lodge, Jeep Safari, Guide, Parking, Room Service, Campfire"
