@@ -33,15 +33,14 @@
 
     <img src="/static/images/cruise.jpg">
     <img src="/static/images/wild.jpg">
-    <img src="/static/images/middleeast.jpg">
     <img src="/static/images/tajmahal.jpg">
+    <img src="/static/images/singapore.jpg">
     <img src="/static/images/fallsboat.jpg">
     <img src="/static/images/hampi.jpg">
     <img src="/static/images/boathouse.jpg">
     <img src="/static/images/camel.jpg">
     <img src="/static/images/boat.jpg">
     <img src="/static/images/coorg.jpg">
-    <img src="/static/images/singapore.jpg">
     <img src="/static/images/manali.jpg">
     <img src="/static/images/cruise.jpg">
     <img src="/static/images/middleeast.jpg">
@@ -52,15 +51,14 @@
     <!-- DUPLICATE -->
     <img src="/static/images/cruise.jpg">
     <img src="/static/images/wild.jpg">
-    <img src="/static/images/middleeast.jpg">
     <img src="/static/images/tajmahal.jpg">
+    <img src="/static/images/singapore.jpg">
     <img src="/static/images/fallsboat.jpg">
     <img src="/static/images/hampi.jpg">
     <img src="/static/images/boathouse.jpg">
     <img src="/static/images/camel.jpg">
     <img src="/static/images/boat.jpg">
     <img src="/static/images/coorg.jpg">
-    <img src="/static/images/singapore.jpg">
     <img src="/static/images/manali.jpg">
     <img src="/static/images/cruise.jpg">
     <img src="/static/images/middleeast.jpg">
@@ -101,25 +99,32 @@ you can customize your own tour package, please mention the details in above req
 
 <div class="packages">
 
+<!-- ✅ FIXED -->
 <div class="card">
-<img src="/static/images/boathouse.jpg">
+<img src="{{ url_for('static', filename='images/boathouse.jpg') }}">
 <h3>Kerala Alleppey Boathouse + Munnar</h3>
-<p>₹24000-4D/3N-</p>
-<a href="/package/Kerala Alleppey Boathouse + Munnar"><button>View Details</button></a>
+<p>₹24000-4D/3N</p>
+<a href="{{ url_for('package_detail', slug='kerala-boathouse') }}">
+<button>View Details</button>
+</a>
 </div>
 
 <div class="card">
-<img src="/static/images/vac.jpg">
+<img src="{{ url_for('static', filename='images/vac.jpg') }}">
 <h3>Thailand-Pattaya</h3>
 <p>₹32000-2N/3D</p>
-<a href="/package/Thailand-Pattaya"><button>View Details</button></a>
+<a href="{{ url_for('package_detail', slug='thailand') }}">
+<button>View Details</button>
+</a>
 </div>
 
 <div class="card">
-<img src="/static/images/chik.jpg">
+<img src="{{ url_for('static', filename='images/chik.jpg') }}">
 <h3>Chikmagalur</h3>
-<p>₹4190/-,2D/1N</p>
-<a href="/package/Chikmagalur"><button>View Details</button></a>
+<p>₹4190-2D/1N</p>
+<a href="{{ url_for('package_detail', slug='chikmagalur') }}">
+<button>View Details</button>
+</a>
 </div>
 
 </div>
