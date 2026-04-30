@@ -29,6 +29,18 @@ def get_db():
 all_packages = [
 
     {
+        "name":"Goa N&S",
+        "slug":"goa_beach",
+        "price":"₹12,204 - 3D/2N",
+        "image":"goa.jpg",
+        "itinerary":["Day 1: Arrival in Goa → Hotel check-in → Relax & freshen up → Calangute, Baga, Candolim beaches → Lunch → Free time for beach activities → Sunset view → Dinner → Overnight stay in North Goa","Day 2: Breakfast → Fort Aguada + lighthouse → Calangute & Baga Beach visit → Lunch → Anjuna Beach → Vagator Beach & Chapora Fort photography → Sunset → Optional cruise / nightlife → Dinner → Overnight stay in North Goa","Day 3: Breakfast → Check-out → Drive to South Goa → Visit Basilica of Bom Jesus, Se Cathedral, Dona Paula View Point → Lunch → Miramar Beach → Shopping (if time permits) → Departure from Goa"],
+        "inclusions":"Home pickup/drop, 3*/4*/5*Hotel Stay,Indian food, flight ticket,guide, Transfers,Visa, Sightseeing, Insurance",
+        "exclusions":"entry tickets, Personal Expenses",
+        "facilities":"Beach Resort, Swimming Pool, AC Rooms, WiFi, Bar, Parking"
+    },
+
+
+    {
         "name":"Kerala Alleppey Boathouse + Munnar",
         "slug":"kerala-boathouse",
         "price":"24000-4D/3N-",
@@ -70,17 +82,6 @@ all_packages = [
         "inclusions":"Hotel Stay, Breakfast, Sightseeing, Transfers, Guide, Parking",
         "exclusions":"Entry Fees, Personal Expenses",
         "facilities":"Hill View Rooms, Cab Service, Hot Water, Parking, Room Service, Guide"
-    },
-
-    {
-        "name":"Goa N&S",
-        "slug":"goa_beach",
-        "price":"-3N/4D-",
-        "image":"goa.jpg",
-        "itinerary":["Day 1: Arrival in Goa → Hotel check-in → Breakfast → Calangute, Baga, Candolim beaches → Lunch → Optional water sports → Dinner → Overnight stay in North Goa","Day 2: Breakfast → Fort Aguada + lighthouse → Lunch → Chapora Fort & Vagator Beach photography → Sunset at Anjuna → Dinner → Overnight stay in North Goa","Day 3: Breakfast → Drive to South Goa → Visit Basilica of Bom Jesus, Se Cathedral, Mangueshi Temple → Lunch → Colva Beach / Palolem Beach → Dinner → Overnight stay in South Goa / North Goa (as per package)","Day 4: Breakfast → Free time for shopping / spa / café hopping / pool time → Lunch → Departure from Goa"],
-        "inclusions":"Home pickup/drop, 3*/4*/5*Hotel Stay,Indian food, flight ticket,guide, Transfers,Visa, Sightseeing, Insurance",
-        "exclusions":"  Water Sports Charges, Personal Expenses",
-        "facilities":"Beach Resort, Swimming Pool, AC Rooms, WiFi, Bar, Parking"
     },
 
     {
