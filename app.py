@@ -38,14 +38,23 @@ all_packages = [
         "exclusions":"entry tickets, Personal Expenses",
         "facilities":"Beach Resort, Swimming Pool, AC Rooms, WiFi, Bar, Parking"
     },
-
+    {
+        "name":"Ooty",
+        "slug":"goa_beach",
+        "price":"₹5300- 2D/1N",
+        "image":"ooty.jpg",
+        "itinerary":["Day 1: Departure from Bangalore → Scenic journey to Ooty via Mysore & Bandipur → Hotel check-in → Relax & freshen up → Visit Ooty Lake & Botanical Garden → Evening shopping at local market → Dinner → Overnight stay in Ooty","Day 2: Breakfast → Explore Doddabetta Peak, Tea Factory & Rose Garden → Lunch → Visit Pykara Lake & Waterfalls → Boating & sightseeing → Return to hotel → Dinner → Overnight stay in Ooty","Day 3: Breakfast → Excursion to Coonoor → Visit Sim’s Park, Dolphin’s Nose & Lamb’s Rock → Lunch → Enjoy Nilgiri mountain views & tea estates → Return to Ooty → Campfire/music (optional) → Dinner → Overnight stay in Ooty","Day 4: Breakfast → Leisure morning & local shopping → Check-out from hotel → Departure to Bangalore with memorable hill station experiences"],
+        "inclusions":"Home pickup/drop, 3*/4*/5*Hotel Stay,Indian food, flight ticket,guide, Transfers,Visa, Sightseeing, Insurance",
+        "exclusions":"entry tickets, Personal Expenses",
+        "facilities":"Beach Resort, Swimming Pool, AC Rooms, WiFi, Bar, Parking"
+    },
 
     {
-        "name":"Kerala Alleppey Boathouse + Munnar",
+        "name":"Kerala Beach + Mountain",
         "slug":"kerala-boathouse",
-        "price":"24000-4D/3N-",
-        "image":"boathouse.jpg",
-        "itinerary":["Day 1: Arrival at Kochi and local sightseeing","Day 2: Transfer to Munnar and explore tea gardens","Day 3: Travel to Alleppey and check into houseboat","Day 4: Backwater cruise and departure"],
+        "price":"14,713/-5D/4N-",
+        "image":"kerala beach+mountain.jpg",
+        "itinerary":["Day 1: Departure from Bangalore → Scenic drive/train journey to Munnar → Hotel check-in → Relax & freshen up → Visit Tea Gardens & Mattupetty Dam → Evening at leisure amidst hills → Dinner → Overnight stay in Munnar","Day 2: Breakfast → Explore Eravikulam National Park, Echo Point & Kundala Lake → Lunch → Departure to Alleppey → Check-in to houseboat/resort → Backwater cruise experience → Sunset by the lake → Traditional Kerala dinner → Overnight stay in Alleppey","Day 3: Breakfast → Departure to Varkala → Hotel check-in → Relax at Varkala Cliff & Beach → Lunch → Free time for beach activities & café hopping → Sunset view at Varkala Beach → Dinner → Overnight stay in Varkala","Day 4: Breakfast → Leisure morning by the beach → Departure to Kochi → Hotel check-in → Explore Fort Kochi, Chinese Fishing Nets & Marine Drive → Shopping & local food experience → Dinner → Overnight stay in Kochi","Day 5: Breakfast → Visit Lulu Mall / local sightseeing if time permits → Check-out → Departure from Kochi to Bangalore → Tour ends with beautiful Kerala beach & mountain memories"],
         "inclusions":"Accommodation, Breakfast and Dinner, Houseboat Stay, Sightseeing, Transfers, Guide",
         "exclusions":"Entry Tickets, Personal Expenses",
         "facilities":"AC Rooms, Private Houseboat, Pickup Drop, Tour Guide, Parking, Room Service"
@@ -118,11 +127,11 @@ all_packages = [
     },
 
     {
-        "name":"Shimla + Manali + Kullu",
+        "name":"Shimla + Manali + Kasol",
         "slug":"manali",
-        "price":"-4N/5D",
+        "price":"46750/-, 8D/7N",
         "image":"manali.jpg",
-        "itinerary":["Day 1: Delhi → Shimla Mall Road Night Stay","Day 2: Kufri Adventure Park → Jakhoo Temple → Night Stay","Day 3: Shimla → Manali via Kullu Valley → River Rafting → Night Stay","Day 4: Solang Valley → Atal Tunnel → Sissu (if open) → Night Stay", "day 5: Manali Local Sightseeing → Hadimba Temple → Vashisht → Delhi Drop"],
+        "itinerary":["Day 1: Departure from Bangalore → Arrival in Delhi/Chandigarh → Scenic drive to Shimla → Hotel check-in → Relax & freshen up → Evening stroll at Mall Road & Ridge → Dinner → Overnight stay in Shimla","Day 2: Breakfast → Visit Kufri, Green Valley & Jakhoo Temple → Adventure activities & sightseeing → Lunch → Free time for shopping and café visits at Mall Road → Dinner → Overnight stay in Shimla","Day 3:Breakfast → Check-out from Shimla → Scenic drive to Manali via Kullu Valley → Enroute river rafting & shawl factory visit → Arrival in Manali → Hotel check-in → Dinner → Overnight stay in Manali","Day 4: Breakfast → Full-day Solang Valley excursion → Enjoy snow activities, ropeway, ATV rides & paragliding → Lunch → Return to hotel → Bonfire & music session → Dinner → Overnight stay in Manali", "Day 5: Early breakfast → Excursion to Atal Tunnel, Sissu & Rohtang Pass (subject to permit/weather) → Snow sightseeing & photography → Return to Manali → Leisure evening at Mall Road → Dinner → Overnight stay in Manali", "Day 6: Breakfast → Visit Hadimba Temple, Vashisht Hot Springs & Old Manali cafés → Check-out → Drive to Kasol → Riverside campsite/hotel check-in → Relax by Parvati River → Bonfire & dinner → Overnight stay in Kasol","Day 7: Breakfast → Explore Kasol local market & cafés → Trek to Chalal/Manikaran Sahib visit → Lunch → Free time amidst mountains and riverside views → Evening music & bonfire → Dinner → Overnight stay in Kasol","Day 8: Breakfast → Check-out from Kasol → Drive back to Delhi/Chandigarh → Departure to Bangalore → Tour ends with unforgettable Himachal mountain memories"],
         "inclusions":"Hotel Stay, Meals, Sightseeing, Transfers, Guide, Parking",
         "exclusions":"Permits, Adventure Activities, Personal Expenses",
         "facilities":"Hill Resort, Cab Service, Bonfire, Parking, Room Service, Guide"
@@ -241,9 +250,9 @@ all_packages = [
     {
         "name":"Vietnam-DA NANG - HANOI -",
         "slug":"vietnam",
-        "price":"5D/4N",
+        "price":"59,750/-4D/3N",
         "image":"vietnam.jpg",
-        "itinerary":["Day 1: Bangalore Da Nang - Hotel check-in - local sightseeing Marble Mountain, Dragon Bridge, My Khe Beach or Hoi An Ancient Town, Ma May Ancient House, Hoan Kiem Lake & Ngoc Son Temple, Dong Xuan Market, night stay Da Nang","Day 2: Ba Na Hills & Golden Bridge Full Day Tour Sightseeing - cable car, Golden Bridge, French Village, Fantasy Park, Pagodas & Spiritual Area, & other sightseeing - Night Dep by flight, Da Nang - Hanoi, night stay","Day 3: Halong Bay Cruise, full day tour - Sung Sot Cave, Ti Top Island, Luon Cave, Thien Cung Cave, kayak - night stay, Hanoi","Day 4: Ninh Binh & caves Full Day Tour Ninh Binh caves include Trang An boat caves, Tam Coc three caves, and Mua Cave viewpoint with stunning limestone scenery, night stay Hanoi","Day 5: Hanoi Shopping, Dep Bangalore Morning Check out - shopping - Airport Drop"],
+        "itinerary":["Day 1:Departure from Bangalore → Arrival at Hanoi Airport → Hotel check-in → Hanoi Old Quarter visit → Night market → Overnight stay","Day 2:Breakfast → Transfer to Halong Bay → Cruise experience → Cave visit & sightseeing → Return to Hanoi → Overnight stay","Day 3: Breakfast → Transfer / Flight to Da Nang → Bana Hills & Golden Bridge visit → Beach leisure time → Dragon Bridge visit → Overnight stay","Day 4: Breakfast → Shopping & relaxation → Airport transfer → Departure to Bangalore"],
         "inclusions":"Home pickup/drop, 3*/4*/5*Hotel Stay,Indian food, flight ticket,guide, Transfers,Visa, Sightseeing, Insurance",
         "exclusions":"Personal Expenses, Entry Tickets",
         "facilities":"Hotel, Cruise Stay, WiFi, Guide, Airport Transfer, Parking"
@@ -252,9 +261,9 @@ all_packages = [
     {
         "name":"Thailand-Pattaya",
         "slug":"thailand",
-        "price":"32000-2N/3D",
+        "price":"52,350-4D/3N",
         "image":"vac.jpg",
-        "itinerary":["Day 1: Bangkok arrival,transfer to Pattaya,hotel check-in, aLcazar show,night stay ","Day 2:breakfast,Coral Island speed boat tour With lunch, beach activities,evening free, night stay","Day 3: -Breakfast, hotel checkout, Bangkok airport drop, flight to Bangalore"],
+        "itinerary":["Day 1: Departure from Bangalore → Arrival at Bangkok Airport → Transfer to Pattaya → Hotel check-in → Pattaya beach leisure time → Dinner → Overnight stay","Day 2:Breakfast → Coral Island tour by speedboat → Water activities & beach relaxation → Return to hotel → Shopping / Walking Street → Overnight stay","Day 3:Breakfast → Transfer to Bangkok → Bangkok city & temple tour → Hotel check-in → Chao Phraya dinner cruise → Shopping at MBK / Indra Market → Overnight stay","Day 4: Breakfast → Free time / shopping → Airport transfer → Departure to Bangalore"],
         "inclusions":"Home pickup/drop, 3*/4*/5*Hotel Stay,Indian food, flight ticket,guide, Transfers,Visa, Sightseeing, Insurance",
         "exclusions":"Personal Expenses, Activities",
         "facilities":"Hotel, Cab Service, WiFi, Guide, Airport Transfer, Parking"
@@ -272,11 +281,22 @@ all_packages = [
     },
 
     {
-        "name":"Chikmagalur",
-        "slug":"nagarhole_tiger_reserve",
+        "name":"Bali ",
+        "slug":"Bali",
+        "price":"64,850-4D/3N",
+        "image":"bali.jpg",
+        "itinerary":["Day 1: Departure from Bangalore → Arrival at Bali Airport → Resort check-in → Beach sunset experience → Dinner → Overnight stay","Breakfast → Kintamani Volcano tour → Bali Swing → Ubud market visit → Coffee plantation → Overnight stay","Day 3: Breakfast → Nusa Penida island tour → Kelingking Beach & Angel Billabong visit → Beach relaxation → Cruise / candlelight dinner → Overnight stay","Day 4: Breakfast → Shopping & leisure time → Airport transfer → Departure to Bangalore"],
+        "inclusions":"Home pickup/drop, 3*/4*/5*Hotel Stay,Indian food, flight ticket,guide, Transfers,Visa, Sightseeing, Insurance",
+        "exclusions":"Personal Expenses, Activities",
+        "facilities":"Hotel, Cab Service, WiFi, Guide, Airport Transfer, Parking"
+    },
+
+    {
+        "name":"Mangalore + Chikmagalur",
+        "slug":"kerala_beach+mountain",
         "price":"4190/-,2D/1N",
-        "image":"chik.jpg",
-        "itinerary":["Day 1:Chikmagalur Arrival - Mullayanagiri Peak - Hirekolale Lake - Bhadra Wildlife Sanctuary - Local Market","Day 2: Chikmagalur - Jhari Waterfalls - Belur Halebidu Temples - Coffee Plantation - Departure"],
+        "image":"kerala beach+mountain.jpg",
+        "itinerary":["Day 1: Departure from Bangalore → Arrival in Chikmagalur → Breakfast enroute → Hotel/resort check-in → Visit Mullayanagiri Peak, Jhari Falls & coffee plantations → Lunch → Sunset viewpoint experience → Campfire & dinner → Overnight stay in Chikmagalur","Day 2: Early breakfast → Departure to Mangalore → Visit Panambur Beach, Tannirbhavi Beach & local sightseeing → Lunch → Shopping/local food experience → Departure back to Bangalore → Tour ends with beautiful beach & hill memories"],
         "inclusions":"Resort Stay, Meals, Safari, Guide, Transfers, Sightseeing",
         "exclusions":"Entry Fees, Personal Expenses, Activities",
         "facilities":"Forest Lodge, Jeep Safari, Guide, Parking, Room Service, Campfire"
