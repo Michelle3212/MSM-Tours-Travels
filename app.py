@@ -53,7 +53,7 @@ all_packages = [
         "name":"Kerala Beach + Mountain",
         "slug":"kerala-boathouse",
         "price":"14,713/-5D/4N-",
-        "image":"kerala beach+mountain.jpg",
+        "image":"kerala.jpg",
         "itinerary":["Day 1: Departure from Bangalore → Scenic drive/train journey to Munnar → Hotel check-in → Relax & freshen up → Visit Tea Gardens & Mattupetty Dam → Evening at leisure amidst hills → Dinner → Overnight stay in Munnar","Day 2: Breakfast → Explore Eravikulam National Park, Echo Point & Kundala Lake → Lunch → Departure to Alleppey → Check-in to houseboat/resort → Backwater cruise experience → Sunset by the lake → Traditional Kerala dinner → Overnight stay in Alleppey","Day 3: Breakfast → Departure to Varkala → Hotel check-in → Relax at Varkala Cliff & Beach → Lunch → Free time for beach activities & café hopping → Sunset view at Varkala Beach → Dinner → Overnight stay in Varkala","Day 4: Breakfast → Leisure morning by the beach → Departure to Kochi → Hotel check-in → Explore Fort Kochi, Chinese Fishing Nets & Marine Drive → Shopping & local food experience → Dinner → Overnight stay in Kochi","Day 5: Breakfast → Visit Lulu Mall / local sightseeing if time permits → Check-out → Departure from Kochi to Bangalore → Tour ends with beautiful Kerala beach & mountain memories"],
         "inclusions":"Accommodation, Breakfast and Dinner, Houseboat Stay, Sightseeing, Transfers, Guide",
         "exclusions":"Entry Tickets, Personal Expenses",
@@ -206,10 +206,21 @@ all_packages = [
     {
         "name":"Singapore",
         "slug":"singapore",
-        "price":"-4N/5D-",
+        "price":"₹63,250,-4D/3N-",
         "image":"singapore.jpg",
-        "itinerary":["Day 1: Arrival,hotel check-in,Merlion Park,Marina Bay Sands Skypark, Gardens by the Bay,supertree lightshow,Night stay","Day 2: Breakfast,Sentosa Island tour(Cable car,S.E.A aquarium/madam tussauds),Wings of the Time show,night stay","Day 3: Breakfast,Universal Studios or Zoo + Night Safari,evening leisure,night stay ","Day 4: breakfast,Singapore Flyer / Duck Tour,Chinatown,little India,Bugis street shopping,Clark Quay Night walk,night stay", "Day 5: breakfast,hotel checkout,airport drop,departure,drop home"],
-        "inclusions":"Home pickup/drop, 3*/4*/5*Hotel Stay,Indian food, flight ticket,guide, Transfers,Visa, Sightseeing, Insurance",
+        "itinerary":["Day 1: Arrival in Singapore,hotel check-in,Merlion Park,Marina Bay Sands SkyPark,Helix Bridge, Gardens by the Bay,Supertree Grove Light Show,night stay","Day 2: Breakfast,Sentosa Island tour(Cable Car,S.E.A Aquarium/Madame Tussauds,Siloso Beach),Wings of Time show,dinner,night stay","Day 3: Breakfast,Universal Studios Singapore full day tour,rides and attractions,evening leisure at Orchard Road,night stay","Day 4: Breakfast,Singapore Flyer,Chinatown,Little India,Bugis Street shopping,Clarke Quay evening walk,hotel checkout,airport drop,departure"]
+        "inclusions":"Home pickup/drop, 3*/4*/5*Hotel Stay,Breakfast, flight ticket,Train from Rome to Florence,private transfer",
+        "exclusions":"Personal Expenses",
+        "facilities":"City Hotel, Metro Pass, WiFi, Guide, Airport Transfer, Parking"
+    },
+
+    {
+        "name":"Rome + Florence",
+        "slug":"singapore",
+        "price":"₹1,28,900,-4D/3N-",
+        "image":"romeflor.jpg",
+        "itinerary":["Day 1: Arrival in Rome,hotel check-in,Colosseum,Roman Forum,Trevi Fountain,Spanish Steps,Piazza Navona,night stay","Day 2: Breakfast,Vatican City tour(St. Peter’s Basilica,Sistine Chapel,Vatican Museums),Pantheon,evening leisure in Trastevere,night stay","Day 3: Breakfast,train transfer to Florence,hotel check-in,Florence Cathedral,Piazza della Signoria,Ponte Vecchio,Uffizi Gallery,night stay","Day 4: Breakfast,Pisa half-day excursion or Tuscany countryside tour,shopping at Florence local markets,hotel checkout,departure"]      
+        "inclusions":"Home pickup/drop, 3*/4*/5*Hotel Stay,Breakfast, flight ticket,Train from Rome to Florence,private transfer",
         "exclusions":"Personal Expenses",
         "facilities":"City Hotel, Metro Pass, WiFi, Guide, Airport Transfer, Parking"
     },
@@ -259,7 +270,7 @@ all_packages = [
     },
 
     {
-        "name":"Thailand-Pattaya",
+        "name":"Thailand-Bangkok+Pattaya",
         "slug":"thailand",
         "price":"52,350-4D/3N",
         "image":"vac.jpg",
@@ -295,7 +306,7 @@ all_packages = [
         "name":"Mangalore + Chikmagalur",
         "slug":"kerala_beach+mountain",
         "price":"4190/-,2D/1N",
-        "image":"kerala beach+mountain.jpg",
+        "image":"mangchik.jpg",
         "itinerary":["Day 1: Departure from Bangalore → Arrival in Chikmagalur → Breakfast enroute → Hotel/resort check-in → Visit Mullayanagiri Peak, Jhari Falls & coffee plantations → Lunch → Sunset viewpoint experience → Campfire & dinner → Overnight stay in Chikmagalur","Day 2: Early breakfast → Departure to Mangalore → Visit Panambur Beach, Tannirbhavi Beach & local sightseeing → Lunch → Shopping/local food experience → Departure back to Bangalore → Tour ends with beautiful beach & hill memories"],
         "inclusions":"Resort Stay, Meals, Safari, Guide, Transfers, Sightseeing",
         "exclusions":"Entry Fees, Personal Expenses, Activities",
