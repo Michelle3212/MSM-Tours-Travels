@@ -208,7 +208,7 @@ all_packages = [
         "slug":"singapore",
         "price":"₹63,250,-4D/3N-",
         "image":"singapore.jpg",
-        "itinerary":["Day 1: Arrival in Singapore,hotel check-in,Merlion Park,Marina Bay Sands SkyPark,Helix Bridge, Gardens by the Bay,Supertree Grove Light Show,night stay","Day 2: Breakfast,Sentosa Island tour(Cable Car,S.E.A Aquarium/Madame Tussauds,Siloso Beach),Wings of Time show,dinner,night stay","Day 3: Breakfast,Universal Studios Singapore full day tour,rides and attractions,evening leisure at Orchard Road,night stay","Day 4: Breakfast,Singapore Flyer,Chinatown,Little India,Bugis Street shopping,Clarke Quay evening walk,hotel checkout,airport drop,departure"]
+        "itinerary":["Day 1: Arrival in Singapore,hotel check-in,Merlion Park,Marina Bay Sands SkyPark,Helix Bridge, Gardens by the Bay,Supertree Grove Light Show,night stay","Day 2: Breakfast,Sentosa Island tour(Cable Car,S.E.A Aquarium/Madame Tussauds,Siloso Beach),Wings of Time show,dinner,night stay","Day 3: Breakfast,Universal Studios Singapore full day tour,rides and attractions,evening leisure at Orchard Road,night stay","Day 4: Breakfast,Singapore Flyer,Chinatown,Little India,Bugis Street shopping,Clarke Quay evening walk,hotel checkout,airport drop,departure"],
         "inclusions":"Home pickup/drop, 3*/4*/5*Hotel Stay,Breakfast, flight ticket,Train from Rome to Florence,private transfer",
         "exclusions":"Personal Expenses",
         "facilities":"City Hotel, Metro Pass, WiFi, Guide, Airport Transfer, Parking"
@@ -219,7 +219,7 @@ all_packages = [
         "slug":"singapore",
         "price":"₹1,28,900,-4D/3N-",
         "image":"romeflor.jpg",
-        "itinerary":["Day 1: Arrival in Rome,hotel check-in,Colosseum,Roman Forum,Trevi Fountain,Spanish Steps,Piazza Navona,night stay","Day 2: Breakfast,Vatican City tour(St. Peter’s Basilica,Sistine Chapel,Vatican Museums),Pantheon,evening leisure in Trastevere,night stay","Day 3: Breakfast,train transfer to Florence,hotel check-in,Florence Cathedral,Piazza della Signoria,Ponte Vecchio,Uffizi Gallery,night stay","Day 4: Breakfast,Pisa half-day excursion or Tuscany countryside tour,shopping at Florence local markets,hotel checkout,departure"]      
+        "itinerary":["Day 1: Arrival in Rome,hotel check-in,Colosseum,Roman Forum,Trevi Fountain,Spanish Steps,Piazza Navona,night stay","Day 2: Breakfast,Vatican City tour(St. Peter’s Basilica,Sistine Chapel,Vatican Museums),Pantheon,evening leisure in Trastevere,night stay","Day 3: Breakfast,train transfer to Florence,hotel check-in,Florence Cathedral,Piazza della Signoria,Ponte Vecchio,Uffizi Gallery,night stay","Day 4: Breakfast,Pisa half-day excursion or Tuscany countryside tour,shopping at Florence local markets,hotel checkout,departure"],
         "inclusions":"Home pickup/drop, 3*/4*/5*Hotel Stay,Breakfast, flight ticket,Train from Rome to Florence,private transfer",
         "exclusions":"Personal Expenses",
         "facilities":"City Hotel, Metro Pass, WiFi, Guide, Airport Transfer, Parking"
